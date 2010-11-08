@@ -1,0 +1,12 @@
+DEVELOPER VERSION 0.1
+
+READY
+- authentication to vkontakte.ru
+- internal playlist load to playlistManager
+
+TODO
+- implement jplayer layer (vkPlayer) methods:
+    play/stop/pause/volume/forward/backward
+    add playing header name
+    user-ajax authentication
+    ajax saving of playlist
