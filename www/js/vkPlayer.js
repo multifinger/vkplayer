@@ -6,6 +6,12 @@ var vkPlayer = function()
 {
     var _playItem = 0;
 
+    var _emptyPlaylistItem = {
+        artist  :   "Unknown artist",
+        title   :   "Without title",
+        mp3     :   false
+    }
+
     var _playListData = []; // [ {artist, title, mp3, ogg} ]
 
     var _element = null;
@@ -64,22 +70,35 @@ var vkPlayer = function()
             _playListData[_playItem].ogg);
     }
 
-    function _displayPlayList()
+    function _redrawPlayList()
     {
         debug(_playListData);
+
+        $("ul",_playList).html('');
+        
         if (_playListData.length) {
-            for (i=0; i < _playListData.length; i++) {
-                var listItem = (i == _playListData.length-1) ? "<li class='jplayer_playList_item_last'>" : "<li>";
-                listItem += "<a href='#' id='jplayer_playList_item_"+i+"' tabindex='1'>"+ _playListData[i].name +"</a></li>";
+            for (var i=0; i < _playListData.length; i++) {
+                var listItem = "";
+                listItem += "<li>";
+                listItem +=     "<a href='#' id='jplayer_playList_item_"+i+"' tabindex='1'>";
+                listItem +=         "<b>"+_playListData[i].artist+"</b>";
+                listItem +=         " &#0151; "+_playListData[i].title;
+                listItem +=     "</a>";
+                listItem += "</li>";
+
                 $("ul",_playList).append(listItem);
-                $("#"+_opts.listitem+i).data( "index", i ).click( function() {
+                $("#"+_opts.listitem+i).data( "index", i ).click( function(e) {
+                    
                     var index = $(this).data("index");
+                    debug("call vkPlayer._playList["+index+"] onClick()");
                     if (_playItem != index) {
                         _playListChange( index );
                     } else {
                         _element.jPlayer("play");
                     }
                     $(this).blur();
+
+                    e.stopPropagation();
                     return false;
                 });
             }
@@ -102,8 +121,8 @@ var vkPlayer = function()
             _element = $("#"+_opts.id)
             .jPlayer({
                 ready: function() {
-                    _displayPlayList();
-                    playListInit(false);
+                    _redrawPlayList();
+                    _playListConfig();
                 }
             })
             .jPlayer("onSoundComplete", function() {
@@ -144,13 +163,13 @@ var vkPlayer = function()
         loadList: function(list)
         {
             _playListData = list;
-            _displayPlayList();
+            _redrawPlayList();
         },
 
         clearPlaylist: function()
         {
             _playListData = [];
-            _displayPlayList();
+            _redrawPlayList();
         },
 
         createEmptyPlaylist: function()
@@ -162,7 +181,20 @@ var vkPlayer = function()
         {
             var h1 = 'Играет <a href="javascript:void(0);">'+ name + '</a>';
             $('h1', _playList).html(h1);
-            _displayPlayList();
+            _redrawPlayList();
+            
+        },
+
+        pushPlaylist: function(data)
+        {
+            debug(">>> vkPlayer.pushPlaylist");
+            data = $.extend({}, _emptyPlaylistItem, data);
+
+            if (data.mp3) {
+                _playListData.push(data);
+                debug(_playListData);
+                _redrawPlayList();
+            }
             
         }
     }

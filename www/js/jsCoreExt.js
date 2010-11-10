@@ -27,6 +27,10 @@ function clone(o)
     return c;
 }
 
+/* Safely console.log if _DEBUG is true
+ *
+ * @param   mes Object
+ */
 function debug(mes)
 {
     if(window._DEBUG) {

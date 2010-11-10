@@ -32,6 +32,9 @@ var playlistManager = function()
                 html +=     "<a href='#' onclick='return false;'>";
                 html +=         "<b>"+_playlist[i].artist+"</b> &#0151; "+_playlist[i].title;
                 html +=     "</a>";
+                html +=     "<a href='#' onclick='playlistManager.playerPush("+i+"); return false;' title='В список воспроизведения'>";
+                html +=         "+";
+                html +=     "</a>";
                 html += "</li>";
                 $("ul", _element).append(html);
             }
@@ -46,6 +49,17 @@ var playlistManager = function()
         clear: function()
         {
             if(_element) _element.html('');
+        },
+
+        playerPush: function(i)
+        {
+            debug(">>> playlistManager.playerPush("+i+")");
+
+            vkPlayer.pushPlaylist({
+                artist  :   _playlist[i].artist,
+                title   :   _playlist[i].title,
+                mp3     :   _playlist[i].mp3
+            });
         }
     }
 

@@ -8,5 +8,4 @@ TODO
 - implement jplayer layer (vkPlayer) methods:
     play/stop/pause/volume/forward/backward
     add playing header name
-    user-ajax authentication
-    ajax saving of playlist
+    cookie saving playlists
