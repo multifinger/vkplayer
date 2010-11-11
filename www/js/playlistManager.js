@@ -29,11 +29,11 @@ var playlistManager = function()
             for (var i=0; i<_playlist.length; i++) {
                 var html = "";
                 html += "<li>";
+                html +=     "<a class='playerPush' href='#' onclick='playlistManager.playerPush("+i+"); return false;' title='В список воспроизведения'>";
+                html +=         "+";
+                html +=     "</a>";
                 html +=     "<a href='#' onclick='return false;'>";
                 html +=         "<b>"+_playlist[i].artist+"</b> &#0151; "+_playlist[i].title;
-                html +=     "</a>";
-                html +=     "<a href='#' onclick='playlistManager.playerPush("+i+"); return false;' title='В список воспроизведения'>";
-                html +=         "+";
                 html +=     "</a>";
                 html += "</li>";
                 $("ul", _element).append(html);

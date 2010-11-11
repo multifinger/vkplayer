@@ -1,3 +1,9 @@
+@font-face {
+ font-family: "Tahoma";
+  src: url( /res/font/Tahoma_Regular.eot );
+  src: local("Tahoma"), url( /res/font/Tahoma_Regular.ttf ) format("truetype");
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -6,6 +12,7 @@ html, body {
     min-width:999px;
     width:expression(document.body.clientWidth < 999? "999px": "auto" );
     position:relative;
+    font-family: "Tahoma", sans-serif;
 }
 
 a img {
@@ -53,7 +60,7 @@ p, h1, h2, h3 {
 }
 .header_logo {
     position: absolute !important;
-    font: 30px Tahoma;
+    font-size: 30px;
     left: 15px;
 }
 .header_logo a {
@@ -66,7 +73,8 @@ p, h1, h2, h3 {
     position: absolute !important;
     right: 15px;
     top: 5px;
-    font: bold 11px Tahoma;
+    font-size: 11px;
+    font-weight: bold;
     color: #fff;
     text-shadow: 1px 1px 1px #525252;
     filter: dropshadow(color=#525252, offx=1, offy=1);
@@ -75,7 +83,7 @@ p, h1, h2, h3 {
     position: absolute !important;
     right: 15px;
     top: 20px;
-    font: 10px Tahoma;
+    font-size: 10px;
     color: #fff;
 }
 .jp-playlist-player {
@@ -118,7 +126,7 @@ p, h1, h2, h3 {
 }
 #siteMenu ul li a {
     color: #2b587a;
-    font: 11px Tahoma;
+    font-size: 11px;
     text-decoration: none;
 }
 
@@ -137,7 +145,8 @@ p, h1, h2, h3 {
 #playlistManager h1,
 #playlistPlayer h1 {
     margin: 0 0 10px 0;
-    font: normal 18px Tahoma;
+    font-size:18px;
+    font-weight: normal;
 }
 #playlistManager h1 {
     color: #2b587a;
@@ -157,7 +166,8 @@ p, h1, h2, h3 {
 }
 #playlistManager ul li,
 #playlistPlayer ul li {
-    font: 11px Tahoma;    
+    position: relative;
+    font-size: 11px;
     line-height: 23px;
     height: 23px;
     overflow: hidden;
@@ -170,4 +180,9 @@ p, h1, h2, h3 {
 #playlistManager ul li a b,
 #playlistPlayer ul li a b {
     color: #2b587a;
+}
+#playlistManager a.playerPush {
+    display: inline-block;
+    position: absolute;
+    right: 0;
 }
