@@ -1,7 +1,14 @@
 @font-face {
- font-family: "Tahoma";
-  src: url( /res/font/Tahoma_Regular.eot );
-  src: local("Tahoma"), url( /res/font/Tahoma_Regular.ttf ) format("truetype");
+    font-family: "MyTahoma";
+    font-weight: normal;
+    src: url( /res/font/Tahoma_Regular.eot );
+    src: local("Tahoma_Regular"), url( /res/font/Tahoma_Regular.ttf ) format("truetype");
+}
+@font-face {
+    font-family: "MyTahoma";
+    font-weight: bold;
+    src: url( /res/font/Tahoma_Bold.eot );
+    src: local("Tahoma_Bold"), url( /res/font/Tahoma_Bold.ttf ) format("truetype");
 }
 
 html, body {
@@ -12,7 +19,7 @@ html, body {
     min-width:999px;
     width:expression(document.body.clientWidth < 999? "999px": "auto" );
     position:relative;
-    font-family: "Tahoma", sans-serif;
+    font-family: tahoma, arial, verdana, sans-serif, 'Lucida Sans';
 }
 
 a img {
@@ -115,7 +122,7 @@ p, h1, h2, h3 {
     margin: 0;
     padding: 0;
     list-style: none;
-    
+
 }
 #siteMenu ul li {
     height: 23px;
