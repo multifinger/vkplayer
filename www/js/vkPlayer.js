@@ -38,20 +38,27 @@ var vkPlayer = function()
 
     function _playListPlay( index )
     {
-        // TODO: add current playing trigger to play/pause
+        if (_playListData.length==0) return;
         
+        // TODO: add current playing trigger to play/pause
+
+        _playItem = index;
         _element.jPlayer("setFile", _playListData[index].mp3);
         _element.jPlayer("play");
     }
 
     function _playListNext()
     {
+        if (_playListData.length==0) return;
+
         var index = (_playItem+1 < _playListData.length) ? _playItem+1 : 0;
         _playListPlay( index );
     }
 
     function _playListPrev()
     {
+        if (_playListData.length==0) return;
+
         var index = (_playItem-1 >= 0) ? _playItem-1 : _playListData.length-1;
         _playListPlay( index );
     }
@@ -102,7 +109,7 @@ var vkPlayer = function()
                     _playListPlay(index);
                     $(this).blur();
 
-                    e.stopPropagation();
+                    e.preventDefault();
                     return false;
                 });
             }
@@ -162,27 +169,27 @@ var vkPlayer = function()
             $("#"+_opts.previous).click( function(e) {
                 _playListPrev();
                 $(this).blur();
-                e.stopPropagation();
+                e.preventDefault();
             });
 
             $("#"+_opts.next).click( function(e) {
                 _playListNext();
                 $(this).blur();
-                e.stopPropagation();
+                e.preventDefault();
             });
 
             _toggleShuffle(_settings.shuffle);
             $("#"+_opts.shuffle).click( function(e) {
                 _toggleShuffle();
                 $(this).blur();
-                e.stopPropagation();
+                e.preventDefault();
             });
 
             _toggleRepeat(_settings.repeat);
             $("#"+_opts.repeat).click( function(e) {
                 _toggleRepeat();
                 $(this).blur();
-                e.stopPropagation();
+                e.preventDefault();
             });
             
             if(_opts.autoplay) {
