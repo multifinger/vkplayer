@@ -130,6 +130,8 @@ var vkAPI = function()
     function _onLogin(session)
     {
         debug('>>> vkAPI._onLogin()');
+        debug('session = ');
+        debug(session);
 
         _hideLoginButton();
         
@@ -142,7 +144,9 @@ var vkAPI = function()
                     VK.Api.call('getProfiles', {
                         uids: session.mid
                     }, function(r) {
-                        if(r.response) {                            
+                        if(r.response) {
+                            debug('UserInfo = ');
+                            debug(r.response[0]);
                             _setUserInfo(r.response[0]); // <= _onLogoutCallback here
                             _showUserInfo(r.response[0]);
                         } else {
