@@ -51,7 +51,9 @@ var menuConfig = [
 
 $(function()
 {
-    vkPlayer.init();
+    vkPlayer.init({
+        id      : "jquery_jplayer"
+    });
     vkAPI.init({
         onLogin: defaultAction,
         onLogout: clearPage

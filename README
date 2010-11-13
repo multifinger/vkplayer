@@ -1,11 +1,23 @@
-DEVELOPER VERSION 0.1
+DEVELOPER VERSION 0.2
 
 READY
-- authentication to vkontakte.ru
-- internal playlist load to playlistManager
+- vkOpenAPI authentication
+- vkPlayer design
+- vkPlayer abstract layer
+- menu manager
 
 TODO
 - implement jplayer layer (vkPlayer) methods:
-    play/stop/pause/volume/forward/backward
-    add playing header name
+    check repeat/shuffle working in next/prev methods
+    add playing title/author
+    add playing time / total time
     cookie saving playlists
+    drag'n'sort vkPlaylist
+    removeBut in vkPlaylist
+- rename playlistManager to vkLibrary
+
+WISH LIST
+- top playing
+- search
+- friends playlists
+- drag form playlist manager

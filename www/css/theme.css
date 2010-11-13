@@ -88,7 +88,7 @@ p, h1, h2, h3 {
 }
 .jp-playlist-player {
     position: absolute !important;
-    width: 360px;
+    width: 600px;
     top: 0;
     left: 170px;
     height: 46px;

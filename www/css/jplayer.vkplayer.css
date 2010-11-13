@@ -1,23 +1,21 @@
 /*
  * Skin for jPlayer Plugin (jQuery JavaScript Library)
- * http://www.happyworm.com/jquery/jplayer
- *
  * Skin Name: vkplayer
  *
- * Copyright (c) 2010 Borisov Maxim
+ * Copyright (c) 2010 makzlab.ru
  * Dual licensed under the MIT and GPL licenses.
  *  - http://www.opensource.org/licenses/mit-license.php
  *  - http://www.gnu.org/copyleft/gpl.html
  *
  * Author: Maxim Borisov
  * Skin Version: 1.0
- * Date: 27th October 2010
+ * Date: 13th November 2010
  */
 
 div.jp-single-player,
 div.jp-playlist-player {
 	font-size:11px;
-	font-family:Tahoma, Verdana, Arial, sans-serif;
+	font-family:Tahoma, sans-serif;
 	color: #fff;
 }
 div.jp-interface {
@@ -45,9 +43,9 @@ div.jp-interface ul.jp-controls a {
 }
 a.jp-play,
 a.jp-pause {
-	top:2px;
-	width:37px;
-	height:36px;
+	top:4px;
+	width:35px;
+	height:35px;
 }
 div.jp-single-player a.jp-play,
 div.jp-single-player a.jp-pause {
@@ -55,131 +53,151 @@ div.jp-single-player a.jp-pause {
 }
 div.jp-playlist-player a.jp-play,
 div.jp-playlist-player a.jp-pause {
-	left:48px;
+	left:148px;
 }
-a.jp-play {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") 0 -83px no-repeat;
+a.jp-play, a.jp-play:active {
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -150px -4px no-repeat;
 }
 a.jp-play:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -37px -83px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -185px -4px no-repeat;
 }
-a.jp-pause {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -74px -83px no-repeat;
+a.jp-pause, a.jp-pause:active {
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -220px -4px no-repeat;
 	display: none;
 }
 a.jp-pause:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -111px -83px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -255px -4px no-repeat;
 }
 a.jp-stop {
 	top:8px;
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -102px -49px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -0px -8px no-repeat;
 	width:25px;
-	height:24px;
+	height:25px;
 }
 div.jp-single-player a.jp-stop {
 	left:90px;
 }
 div.jp-playlist-player a.jp-stop {
-	left:117px;
+	left:217px;
 }
 a.jp-stop:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -127px -49px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -25px -8px no-repeat;
 }
 a.jp-previous {
-	left:20px;
+	left:120px;
 	top:8px;
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -52px -49px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -50px -8px no-repeat;
 	width:25px;
 	height:24px;
 }
 a.jp-previous:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -77px -49px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -75px -8px no-repeat;
 }
 a.jp-next {
-	left:88px;
+	left:188px;
 	top:8px;
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -2px -49px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -100px -8px no-repeat;
 	width:25px;
 	height:24px;
 }
 a.jp-next:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -27px -49px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -125px -8px no-repeat;
 }
 div.jp-progress {
 	position: absolute;
 	overflow:hidden;
-	top:13px;
-	background-color: #ddd;
+	top:20px;
 	width:122px;
-	height:17px;
+	height:3px;
+    OFFbackground: url("/img/jplayer.vkplayer/loading3px.gif");
+    background: #acacac;
 }
 div.jp-single-player div.jp-progress {
 	left:130px;
 }
 div.jp-playlist-player div.jp-progress {
-	left:155px;
+	left:255px;
 }
 div.jp-load-bar {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -0px -176px no-repeat;
+	background: #cfcfcf;
 	width:0px;
-	height:17px;
+	height:3px;
 	cursor: pointer;
 }
 div.jp-play-bar {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -0px -135px no-repeat;
+	background: #fff;
 	width:0px;
-	height:17px;
+	height:3px;
 }
 a.jp-volume-min {
 	top:12px;
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -2px -12px no-repeat;
-	width:14px;
-	height:17px;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -354px -12px no-repeat;
+	width:13px;
+	height:18px;
 }
 div.jp-single-player a.jp-volume-min {
 	left:274px;
 }
 div.jp-playlist-player a.jp-volume-min {
-	left:296px;
+	left:0px;
 }
 a.jp-volume-min:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -18px -12px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -368px -12px no-repeat;
 }
 a.jp-volume-max {
-	top:12px;
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -38px -12px no-repeat;
-	width:20px;
-	height:17px;
+	top:7px;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -293px -7px no-repeat;
+	width:29px;
+	height:29px;
 }
 div.jp-single-player a.jp-volume-max {
 	left:346px;
 }
 div.jp-playlist-player a.jp-volume-max {
-	left:368px;
+	left:68px;
 }
 a.jp-volume-max:hover {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -59px -12px no-repeat;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -323px -7px no-repeat;
 }
-
 div.jp-volume-bar {
 	position: absolute;
 	overflow:hidden;
-	top:18px;
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -2px -262px repeat-x;
+	top:20px;
+	background: #acacac;
 	width:46px;
-	height:5px;
+	height:3px;
 	cursor: pointer;
 }
 div.jp-single-player div.jp-volume-bar {
 	left:292px;
 }
 div.jp-playlist-player div.jp-volume-bar {
-	left:314px;
+	left:14px;
 }
 div.jp-volume-bar-value {
-	background: url("/img/jplayer.vkplayer/playerIcons.png") -2px -222px repeat-x;
+	background: #fff;
 	width:0px;
-	height:5px;
+	height:3px;
+}
+div.jp-playlist-player a.jp-shuffle {
+    top:9px;
+    left:392px;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -385px -9px no-repeat;
+	width:29px;
+	height:24px;
+}
+div.jp-playlist-player a.jp-shuffle.active {
+    background: url("/img/jplayer.vkplayer/playerIcons2.png") -414px -9px no-repeat;
+}
+div.jp-playlist-player a.jp-repeat {
+    top:9px;
+    left:427px;
+	background: url("/img/jplayer.vkplayer/playerIcons2.png") -443px -9px no-repeat;
+	width:22px;
+	height:24px;
+}
+div.jp-playlist-player a.jp-repeat.active {
+    background: url("/img/jplayer.vkplayer/playerIcons2.png") -465px -9px no-repeat;
 }
 div.jp-play-time,
 div.jp-total-time {
@@ -199,44 +217,4 @@ div.jp-single-player div.jp-total-time {
 div.jp-playlist-player div.jp-play-time,
 div.jp-playlist-player div.jp-total-time {
 	left:164px;
-}
-div.jp-playlist {
-	width:418px;
-}
-div.jp-playlist ul{
-	list-style-type:none;
-	margin:0;
-	padding:0 20px;
-	background-color:#ccc;
-	border:1px solid #009be3;
-	border-top:none;
-	width:378px;
-	font-size:.72em;
-}
-div.jp-single-player div.jp-playlist li {
-	padding:5px 0 5px 20px;
-	font-weight:bold;
-}
-div.jp-playlist-player div.jp-playlist li {
-	padding:5px 0 4px 20px;
-	border-bottom:1px solid #eee;
-}
-div.jp-playlist-player div.jp-playlist li.jplayer_playlist_item_last {
-	padding:5px 0 5px 20px;
-	border-bottom:none;
-}
-div.jp-playlist-player div.jp-playlist li.jplayer_playlist_current {
-	list-style-type:square;
-	list-style-position:inside;
-	padding-left:8px;
-}
-div.jp-playlist-player div.jp-playlist a {
-	color: #666;
-	text-decoration: none;
-}
-div.jp-playlist-player div.jp-playlist a:hover {
-	color:#0d88c1;
-}
-div.jp-playlist-player div.jp-playlist a.jplayer_playlist_current {
-	color:#0d88c1;
 }

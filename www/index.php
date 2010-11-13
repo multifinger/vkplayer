@@ -39,6 +39,8 @@
                             <li><a href="#" id="jplayer_volume_max" class="jp-volume-max" tabindex="1">max volume</a></li>
                             <li><a href="#" id="jplayer_previous" class="jp-previous" tabindex="1">previous</a></li>
                             <li><a href="#" id="jplayer_next" class="jp-next" tabindex="1">next</a></li>
+                            <li><a href="#" id="jplayer_shuffle" class="jp-shuffle" tabindex="1">shuffle</a></li>
+                            <li><a href="#" id="jplayer_repeat" class="jp-repeat" tabindex="1">repeat</a></li>
                         </ul>
                         <div class="jp-progress">
                             <div id="jplayer_load_bar" class="jp-load-bar">
