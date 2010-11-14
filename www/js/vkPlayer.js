@@ -7,12 +7,13 @@ var vkPlayer = function()
     var _playItem = 0;
 
     var _emptyPlaylistItem = {
-        artist  :   "Unknown artist",
-        title   :   "Without title",
-        mp3     :   false
+        artist  : "Unknown artist",
+        title   : "Without title",
+        mp3     : false,
+        time    : 0
     }
 
-    var _playListData = []; // [ {artist, title, mp3, ogg} ]
+    var _playListData = []; // [ {artist, title, mp3, ogg, $this} ]
 
     var _element = null;
 
@@ -36,12 +37,16 @@ var vkPlayer = function()
         repeat  : true
     }
 
-    function _playListPlay( index )
+    function _playListPlay(index)
     {
         if (_playListData.length==0) return;
-        
-        // TODO: add current playing trigger to play/pause
 
+        debug("play "+index);
+
+        // TODO: add current playing trigger to play/pause
+        if (_playListData[index].time==0) {
+            _playListNext();
+        }
         _playItem = index;
         _element.jPlayer("setFile", _playListData[index].mp3);
         _element.jPlayer("play");
@@ -52,6 +57,12 @@ var vkPlayer = function()
         if (_playListData.length==0) return;
 
         var index = (_playItem+1 < _playListData.length) ? _playItem+1 : 0;
+
+        if (_settings.shuffle) do {
+            Math.random();
+            index = Math.floor(Math.random()*_playListData.length);
+        } while (index==_playItem);
+
         _playListPlay( index );
     }
 
@@ -60,7 +71,19 @@ var vkPlayer = function()
         if (_playListData.length==0) return;
 
         var index = (_playItem-1 >= 0) ? _playItem-1 : _playListData.length-1;
+
+        if (_settings.shuffle) do {
+            Math.random();
+            index = Math.floor(Math.random()*_playListData.length);
+        } while (index==_playItem);
+
         _playListPlay( index );
+    }
+
+    function _playListDelete(index)
+    {
+        _playListData.splice(index, 1);
+        _redrawPlayList();
     }
 
     function _playListConfig( index )
@@ -87,32 +110,86 @@ var vkPlayer = function()
 
     function _redrawPlayList()
     {
-        debug(_playListData);
-
         $("ul",_playList).html('');
         
         if (_playListData.length) {
+            
             for (var i=0; i < _playListData.length; i++) {
-                var listItem = "";
-                listItem += "<li>";
-                listItem +=     "<a href='#' id='jplayer_playList_item_"+i+"' tabindex='1'>";
-                listItem +=         "<b>"+_playListData[i].artist+"</b>";
-                listItem +=         " &#0151; "+_playListData[i].title;
-                listItem +=     "</a>";
-                listItem += "</li>";
 
-                $("ul",_playList).append(listItem);
-                $("#"+_opts.listitem+i).data( "index", i ).click( function(e)
+                var m = Math.floor(_playListData[i].time / 60);
+                var s = _playListData[i].time % 60;
+                s = s<10 ? "0" + s : s;
+                
+                var li = "";
+                li += "<li id='jplayer_playList_item_"+i+"'>";
+                li +=     "<a class='play' href='#' title='Играть!'>";
+                li +=         "&nbsp;";
+                li +=     "</a>";
+                li +=     "<a class='delete' href='#' title='Удалить!'>";
+                li +=         "&nbsp;";
+                li +=     "</a>";
+                li +=     "<div class='playerTime' title='Длительность'>";
+                li +=         m + ":" + s;
+                li +=     "</div>";
+                li +=     "<div>";
+                li +=         "<b>"+_playListData[i].artist+"</b>";
+                li +=         " &#0151; "+_playListData[i].title;
+                li +=     "</div>";
+                li += "</li>";
+
+                
+                $("ul",_playList).append(li);
+
+                var $li = $("#"+_opts.listitem+i).data( "index", i );
+
+                $li.click(function(e)
                 {
-                    var index = $(this).data("index");
-                    debug("call vkPlayer._playList["+index+"] onClick()");
-                    _playListPlay(index);
                     $(this).blur();
 
                     e.preventDefault();
                     return false;
                 });
+
+                $('.play', $li).click( function(e)
+                {
+                    var index = $(this).parent().data("index");
+                    _playListPlay(index);
+                    $(this).blur();
+
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                });
+
+                $('.delete', $li).click( function(e)
+                {
+                    var index = $(this).parent().data("index");
+                    _playListDelete(index);
+                    $(this).blur();
+
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                });
             }
+
+            $("ul",_playList)
+                .unbind("sortstop.sorting")
+                .sortable( "destroy" )
+                .sortable( {cursor:"move"} )
+                .disableSelection()
+                .bind("sortstop.sorting", function(e, ui)
+                {
+                    var arr = $(this).sortable('toArray');
+                    var newPLData = [];
+
+                    for (var i=0; i<arr.length; i++) {
+                        newPLData[i] = _playListData[arr[i].match(/\d/g)];
+                    }
+                    _playListData = newPLData;
+                    //TODO: fix Uncaught TypeError: Cannot read property 'time' of undefined
+                    _redrawPlayList();
+                });
         }
     }
 
@@ -121,7 +198,6 @@ var vkPlayer = function()
         b = b!==undefined ? b : !_settings.shuffle;
         _settings.shuffle = b;
 
-        debug(">>> vkPlayer._toggleShuffle("+b+")");
         if (b) {
             $("#"+_opts.shuffle).addClass('active');
         } else {
@@ -134,7 +210,6 @@ var vkPlayer = function()
         b = b!==undefined ? b : !_settings.repeat;
         _settings.repeat = b;
 
-        debug(">>> vkPlayer._toggleRepeat("+b+")");
         if (b) {
             $("#"+_opts.repeat).addClass('active');
         } else {
@@ -147,12 +222,8 @@ var vkPlayer = function()
         
         init: function(opts)
         {
-            debug('>>> vkPlayer.init()');
             _opts = $.extend(_opts, opts);
-            debug(_opts);
-
             _playList = $('#'+_opts.playlist);
-
             _element = $("#"+_opts.id)
             .jPlayer({
                 ready: function() {
@@ -234,15 +305,17 @@ var vkPlayer = function()
             
         },
 
-        pushPlaylist: function(data)
+        pushPlaylist: function(data, play)
         {
-            debug(">>> vkPlayer.pushPlaylist");
             data = $.extend({}, _emptyPlaylistItem, data);
 
             if (data.mp3) {
                 _playListData.push(data);
-                debug(_playListData);
                 _redrawPlayList();
+            }
+
+            if (play!==undefined) {
+                _playListPlay(_playListData.length-1);
             }
             
         }

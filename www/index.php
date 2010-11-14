@@ -9,9 +9,10 @@
 
         <script type="text/javascript">var _DEBUG = true;</script>
         <script type="text/javascript" src="/js/jsCoreExt.js"></script>
-        <script type="text/javascript" src="/js/jquery-1.3.2.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui-1.8.6.custom.min.js"></script>
         <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
-        <script type="text/javascript" src="/js/playlistManager.js"></script>
+        <script type="text/javascript" src="/js/vkLibrary.js"></script>
         <script type="text/javascript" src="/js/siteMenu.js"></script>
         <script type="text/javascript" src="/js/vkPlayer.js"></script>
         <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
@@ -58,7 +59,7 @@
 
             <div id="siteMenu"></div>
 
-            <div id="playlistManager"></div>
+            <div id="vkLibrary"></div>
 
             <div id="playlistPlayer"></div>
 

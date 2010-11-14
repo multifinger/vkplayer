@@ -2,7 +2,7 @@
  * requires: jquery
  */
 
-var playlistManager = function()
+var vkLibrary = function()
 {
     var _playlist   = [];
 
@@ -27,11 +27,22 @@ var playlistManager = function()
         displayList: function()
         {
             for (var i=0; i<_playlist.length; i++) {
+
+                var min = Math.floor(_playlist[i].time / 60);
+                var sec = _playlist[i].time % 60;
+                sec = sec<10 ? "0" + sec : sec;
+
                 var html = "";
                 html += "<li>";
-                html +=     "<a class='playerPush' href='#' onclick='playlistManager.playerPush("+i+"); return false;' title='В список воспроизведения'>";
-                html +=         "+";
+                html +=     "<a class='playerAdd' href='#' onclick='vkLibrary.playerPush("+i+"); return false;' title='Добавить в плейлист'>";
+                html +=         "&nbsp;";
                 html +=     "</a>";
+                html +=     "<a class='playerPlay' href='#' onclick='vkLibrary.playerPush("+i+", true); return false;' title='Добавить и проиграть'>";
+                html +=         "&nbsp;";
+                html +=     "</a>";
+                html +=     "<div class='playerTime' title='Длительность'>";
+                html +=         min + ":" + sec;
+                html +=     "</div>";
                 html +=     "<a href='#' onclick='return false;'>";
                 html +=         "<b>"+_playlist[i].artist+"</b> &#0151; "+_playlist[i].title;
                 html +=     "</a>";
@@ -51,15 +62,14 @@ var playlistManager = function()
             if(_element) _element.html('');
         },
 
-        playerPush: function(i)
-        {
-            debug(">>> playlistManager.playerPush("+i+")");
-
+        playerPush: function(i, play)
+        {            
             vkPlayer.pushPlaylist({
                 artist  :   _playlist[i].artist,
                 title   :   _playlist[i].title,
-                mp3     :   _playlist[i].mp3
-            });
+                mp3     :   _playlist[i].mp3,
+                time    :   _playlist[i].time
+            }, play);
         }
     }
 

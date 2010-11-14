@@ -1,5 +1,5 @@
 /*
- * requires: jquery, vkAPI, vkPlayer, playlistManager
+ * requires: jquery, vkAPI, vkPlayer, vkLibrary
  */
 
 function defaultAction()
@@ -10,22 +10,21 @@ function defaultAction()
 
 function showMyAudio()
 {
-    debug('>>> showMyAudio()');
-
     vkAPI.getUserAudio(null, function(r) {
         if(r.response) {
             var playlist = [];
             for (var i=0; i<r.response.length; i++) {
                 playlist.push({
-                    artist: r.response[i].artist,
-                    title:  r.response[i].title,
-                    mp3:    r.response[i].url
+                    artist  : r.response[i].artist,
+                    title   : r.response[i].title,
+                    mp3     : r.response[i].url,
+                    time    : r.response[i].duration
                 });
             }
-            playlistManager.init(playlistManagerId);
-            playlistManager.setList(playlist);
-            playlistManager.setHeader("Мои аудиозаписи");
-            playlistManager.displayList();
+            vkLibrary.init(vkLibraryId);
+            vkLibrary.setList(playlist);
+            vkLibrary.setHeader("Мои аудиозаписи");
+            vkLibrary.displayList();
             vkPlayer.createPlaylist('мой список');
         }
     });
@@ -34,13 +33,13 @@ function showMyAudio()
 function clearPage()
 {
     siteMenu.clear();
-    playlistManager.clear();
+    vkLibrary.clear();
     vkPlayer.clearPlaylist();
 }
 
 
 var siteMenuId          = 'siteMenu';
-var playlistManagerId   =  'playlistManager';
+var vkLibraryId   =  'vkLibrary';
 
 var menuConfig = [
     {

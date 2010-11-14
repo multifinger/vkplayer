@@ -22,8 +22,6 @@ var vkAPI = function()
     
     function _init(callback)
     {
-        debug('>>> vkAPI._init()');
-
         callback = $.extend({
             onLogin : null,
             onLogout: null
@@ -80,14 +78,10 @@ var vkAPI = function()
 
     function _setUserInfo(u)
     {      
-        debug('>>> vkAPI._setUserInfo()');
-
         _setData('user', u);
 
         // only now we are loged in
         if (typeof _onLoginCallback == "function") {
-            debug('call vkAPI._onLoginCallback()');
-            debug(_onLoginCallback);
             _onLoginCallback();
             // don't clear _callback, can use it once again
             // it's default action after login
@@ -118,7 +112,6 @@ var vkAPI = function()
 
     function _setData(name, object)
     {
-        debug('>>> vkAPI._setData()');
         _data[name] = object;
     }
 
@@ -129,30 +122,21 @@ var vkAPI = function()
 
     function _onLogin(session)
     {
-        debug('>>> vkAPI._onLogin()');
-        debug('session = ');
-        debug(session);
-
         _hideLoginButton();
         
         VK.Api.call('getUserSettings', {}, function(r) {
             if(r.response){
                 if(r.response != SETTINGS) {
-                    debug("Settings mismatch: get "+r.response);
                     _login();
                 } else {
                     VK.Api.call('getProfiles', {
                         uids: session.mid
                     }, function(r) {
                         if(r.response) {
-                            debug('UserInfo = ');
-                            debug(r.response[0]);
                             _setUserInfo(r.response[0]); // <= _onLogoutCallback here
                             _showUserInfo(r.response[0]);
                         } else {
                             _onLogout();
-                            debug("Авторизация не удалась");
-                            debug(r);
                         }
                     });
                     

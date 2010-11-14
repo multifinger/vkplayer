@@ -5,16 +5,17 @@ READY
 - vkPlayer design
 - vkPlayer abstract layer
 - menu manager
+- repeat, shuffle
+- drag'n'sort vkPlaylist
+- removeBut in vkPlaylist
 
 TODO
 - implement jplayer layer (vkPlayer) methods:
-    check repeat/shuffle working in next/prev methods
     add playing title/author
     add playing time / total time
     cookie saving playlists
-    drag'n'sort vkPlaylist
-    removeBut in vkPlaylist
-- rename playlistManager to vkLibrary
+- FIX: Uncaught TypeError: Cannot read property 'time' of undefined
+  thows then sorting list and play
 
 WISH LIST
 - top playing

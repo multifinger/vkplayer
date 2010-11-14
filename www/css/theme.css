@@ -137,7 +137,7 @@ p, h1, h2, h3 {
     text-decoration: none;
 }
 
-#playlistManager {
+#vkLibrary {
     float: left;
     width: 330px;
     margin-left: 20px;
@@ -149,47 +149,91 @@ p, h1, h2, h3 {
     margin-left: 30px;
     overflow: hidden;
 }
-#playlistManager h1,
+#vkLibrary h1,
 #playlistPlayer h1 {
     margin: 0 0 10px 0;
     font-size:18px;
     font-weight: normal;
 }
-#playlistManager h1 {
+#vkLibrary h1 {
     color: #2b587a;
 }
 #playlistPlayer h1 {
     color: #000;
 }
-#playlistManager h1 a,
+#vkLibrary h1 a,
 #playlistPlayer h1 a {
     color: #2b587a;
 }
-#playlistManager ul,
+#vkLibrary ul,
 #playlistPlayer ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-#playlistManager ul li,
+#vkLibrary ul li,
 #playlistPlayer ul li {
     position: relative;
     font-size: 11px;
     line-height: 23px;
     height: 23px;
     overflow: hidden;
+    padding-right: 25px;
+    padding-left: 45px;
 }
-#playlistManager ul li a,
+#vkLibrary ul li a,
 #playlistPlayer ul li a {
     color: #000;
     text-decoration: none;
 }
-#playlistManager ul li a b,
-#playlistPlayer ul li a b {
+#vkLibrary ul li b,
+#playlistPlayer ul li b {
     color: #2b587a;
 }
-#playlistManager a.playerPush {
+#vkLibrary a.playerPlay {
     display: inline-block;
     position: absolute;
-    right: 0;
+    left: 0px;
+    top: 3px;
+    width: 16px;
+    height: 17px;
+    background: url('/img/theme/play.gif');
+}
+#vkLibrary a.playerAdd {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 3px;
+    width: 16px;
+    height: 17px;
+    background: url('/img/theme/add.gif');
+}
+#vkLibrary div.playerTime,
+#playlistPlayer div.playerTime {
+    position: absolute;
+    right: 0px;
+    font-size: 10px;
+    color: #777;
+}
+#playlistPlayer a.play {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 3px;
+    width: 16px;
+    height: 17px;
+    background: url('/img/theme/play.gif');
+}
+#playlistPlayer a.delete {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 3px;
+    width: 16px;
+    height: 17px;
+    background: url('/img/theme/del.gif');
+}
+
+#playlistPlayer ul li {
+    cursor: move;
 }
