@@ -13,15 +13,18 @@ var vkPlayer = function()
         time    : 0
     }
 
-    var _playListData = []; // [ {artist, title, mp3, ogg, $this} ]
+    var _playerContainer    = null;
 
-    var _element = null;
+    var _playListData       = []; // [ {artist, title, mp3, ogg, $this} ]
 
-    var _playList = null;
+    var _element            = null;
+
+    var _playList           = null;
 
     var _opts =
     {
         id              : "jplayer",
+        playerSelector  : ".jp-playlist-player",
         previous        : "jplayer_previous",
         next            : "jplayer_next",
         shuffle         : "jplayer_shuffle",
@@ -32,7 +35,8 @@ var vkPlayer = function()
         swfPath         : '/swf',
         nativeSupport   : false,
         errorAlerts     : window._DEBUG,
-        warningAlerts   : window._DEBUG
+        warningAlerts   : window._DEBUG,
+        opaicty         : 1
     };
 
     var _settings =
@@ -197,6 +201,11 @@ var vkPlayer = function()
         }
     }
 
+    function _setPlayListHeader(header)
+    {
+        $("h1", _playList).html(header);
+    }
+
     function _toggleShuffle(b)
     {
         b = b!==undefined ? b : !_settings.shuffle;
@@ -227,7 +236,11 @@ var vkPlayer = function()
         init: function(opts)
         {
             _opts = $.extend(_opts, opts);
+
             _playList = $('#'+_opts.playlist);
+
+            this.show(_opts.opacity);
+            
             _element = $("#"+_opts.id)
             .jPlayer({
                 ready: function() {
@@ -331,6 +344,22 @@ var vkPlayer = function()
         debugPlayList: function()
         {
             debug(_playListData);
+        },
+
+        show: function(opacity)
+        {
+            if (!_playerContainer) {
+                _playerContainer = $(_opts.playerSelector);
+            }
+
+            _playerContainer.css({
+                opacity : opacity
+            });
+        },
+
+        setPlaylistHeader: function(header)
+        {
+            _setPlayListHeader(header);
         }
     }
     

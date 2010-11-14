@@ -4,6 +4,7 @@
 
 function defaultAction()
 {
+    vkPlayer.show(1);
     siteMenu.init(siteMenuId, menuConfig);
     siteMenu.show(0);
 }
@@ -35,11 +36,12 @@ function clearPage()
     siteMenu.clear();
     vkLibrary.clear();
     vkPlayer.clearPlaylist();
+    vkPlayer.setPlaylistHeader("");
+    vkPlayer.show(0);
 }
 
-
-var siteMenuId          = 'siteMenu';
-var vkLibraryId   =  'vkLibrary';
+var siteMenuId  = 'siteMenu';
+var vkLibraryId =  'vkLibrary';
 
 var menuConfig = [
     {
@@ -51,7 +53,8 @@ var menuConfig = [
 $(function()
 {
     vkPlayer.init({
-        id      : "jquery_jplayer"
+        id      : "jquery_jplayer",
+        opacity : 0
     });
 
     vkAPI.init({

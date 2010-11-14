@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div class="login_button" id="login_button" onclick="vkAPI.login();"></div>
+            <div class="login_button" id="login_button"></div>
 
             <div id="siteMenu"></div>
 

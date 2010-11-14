@@ -4,13 +4,13 @@
 
 var vkAPI = function()
 {
-    var PUBLIC_KEY      = 'xVIlqIucGX';
+    // var PUBLIC_KEY      = 'xVIlqIucGX';
     
-    var APP_ID          = 1998251;
+    var _APP_ID          = 1998251;
     
-    var API_SRC         = "http://vkontakte.ru/js/api/openapi.js";
+    // var API_SRC         = "http://vkontakte.ru/js/api/openapi.js";
 
-    var SETTINGS        = 11;
+    var _SETTINGS        = 11;
 
     var LOGIN_BUTTON_ID = "login_button";
 
@@ -19,22 +19,24 @@ var vkAPI = function()
     var USER_LOGOUT_ID  = "header_logout";
 
     var _data = new Object();
+
+    var _callbacks = {
+        onLogin : null,
+        onLogout: null
+    }
     
-    function _init(callback)
+    function _init(callbacks)
     {
-        callback = $.extend({
-            onLogin : null,
-            onLogout: null
-        }, callback);
-        
-        this._onLoginCallback  = callback.onLogin;
-        this._onLogoutCallback = callback.onLogout;
+        $.extend(_callbacks, callbacks);
 
         VK.init({
-            apiId: APP_ID
+            apiId: _APP_ID
         });
 
         VK.UI.button(LOGIN_BUTTON_ID);
+        $("#"+LOGIN_BUTTON_ID).click(function(){
+            _login();
+        });
 
         $('#'+USER_LOGOUT_ID).click(function(){
             VK.Auth.logout(function(){
@@ -50,13 +52,16 @@ var vkAPI = function()
             _onLogout();
         });
 
+        _updateLoginStatus();
+    }
+
+    function _updateLoginStatus()
+    {
         VK.Auth.getLoginStatus(function(r){
             if (r.session) {
-                // _onLogin() will fired with observer
-                //_onLogin(r.session);
+                _onLogin(r.session);
             } else {
                 // login() popup blocked by browser, show login button
-                //_login();
                 _onLogout();
             }
         });
@@ -64,28 +69,23 @@ var vkAPI = function()
 
     function _login()
     {
-        VK.Auth.login(null, SETTINGS);
+        VK.Auth.login(_updateLoginStatus, _SETTINGS);
     }
 
     function _showUserInfo(u)
     {
         var name = u.first_name+ ' '+u.last_name;
         $('#'+USER_INFO_ID).html(name).show();
-        $('#'+USER_LOGOUT_ID).show();
-                
-        
+        $('#'+USER_LOGOUT_ID).show();  
     }
 
     function _setUserInfo(u)
-    {      
+    {
         _setData('user', u);
 
         // only now we are loged in
-        if (typeof _onLoginCallback == "function") {
-            _onLoginCallback();
-            // don't clear _callback, can use it once again
-            // it's default action after login
-            //_callback = null;
+        if (typeof _callbacks.onLogin == "function") {
+            _callbacks.onLogin();
         }
     }
 
@@ -124,22 +124,23 @@ var vkAPI = function()
     {
         _hideLoginButton();
         
-        VK.Api.call('getUserSettings', {}, function(r) {
-            if(r.response){
-                if(r.response != SETTINGS) {
-                    _login();
+        VK.Api.call('getUserSettings', {}, function(r)
+        {
+            if(r.response!==undefined){
+                if(r.response != _SETTINGS) {
+                    // we need loginButton for popup
+                    _onLogout();
                 } else {
                     VK.Api.call('getProfiles', {
                         uids: session.mid
                     }, function(r) {
                         if(r.response) {
-                            _setUserInfo(r.response[0]); // <= _onLogoutCallback here
+                            _setUserInfo(r.response[0]); // <= _callbacks.onLogout here
                             _showUserInfo(r.response[0]);
                         } else {
                             _onLogout();
                         }
                     });
-                    
                 }
             }
         });
@@ -150,7 +151,7 @@ var vkAPI = function()
         _showLoginButton();
         _hideUserInfo();
         _deleteUserInfo();
-        _onLogoutCallback();
+        _callbacks.onLogout();
     }
 
     function _onUpdateSession(response)
@@ -160,8 +161,8 @@ var vkAPI = function()
 
     var _global =
     {
-        init: function(callback) {
-            _init(callback);
+        init: function(callbacks) {
+            _init(callbacks);
         },
 
         login: function()

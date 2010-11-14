@@ -24,10 +24,12 @@ var siteMenu = function()
             html += "</ul>";
             _element.html(html);
             
-            for(var i in _config) {
-                $(".m"+i, _element).click(function(e){
-                    _global.show(i);
+            for(var j in _config) {
+                $(".m"+j, _element).click(function(e){
+                    var menuItemId = $(this).attr('class').match(/[\d]+/);
+                    _global.show(menuItemId);
                     e.preventDefault();
+                    e.stopPropagation();
                 });
             }
         },
