@@ -21,14 +21,18 @@ var vkPlayer = function()
 
     var _opts =
     {
-        id          : "jplayer",
-        previous    : "jplayer_previous",
-        next        : "jplayer_next",
-        shuffle     : "jplayer_shuffle",
-        repeat      : "jplayer_repeat",
-        playlist    : "playlistPlayer",
-        listitem    : "jplayer_playList_item_",
-        autoplay    : false
+        id              : "jplayer",
+        previous        : "jplayer_previous",
+        next            : "jplayer_next",
+        shuffle         : "jplayer_shuffle",
+        repeat          : "jplayer_repeat",
+        playlist        : "playlistPlayer",
+        listitem        : "jplayer_playList_item_",
+        autoplay        : false,
+        swfPath         : '/swf',
+        nativeSupport   : false,
+        errorAlerts     : window._DEBUG,
+        warningAlerts   : window._DEBUG
     };
 
     var _settings =
@@ -42,6 +46,7 @@ var vkPlayer = function()
         if (_playListData.length==0) return;
 
         debug("play "+index);
+        debug(_playListData[index].mp3);
 
         // TODO: add current playing trigger to play/pause
         if (_playListData[index].time==0) {
@@ -184,10 +189,9 @@ var vkPlayer = function()
                     var newPLData = [];
 
                     for (var i=0; i<arr.length; i++) {
-                        newPLData[i] = _playListData[arr[i].match(/\d/g)];
+                        newPLData[i] = _playListData[arr[i].match(/[\d]+/g)];
                     }
                     _playListData = newPLData;
-                    //TODO: fix Uncaught TypeError: Cannot read property 'time' of undefined
                     _redrawPlayList();
                 });
         }
@@ -229,7 +233,11 @@ var vkPlayer = function()
                 ready: function() {
                     _redrawPlayList();
                     _playListConfig();
-                }
+                },
+                swfPath         : _opts.swfPath,
+                nativeSupport   : _opts.nativeSupport,
+                warningAlerts   : _opts.warningAlerts,
+                errorAlerts     : _opts.errorAlerts
             })
             .jPlayer("onSoundComplete", function() {
                 if ( (_playItem+1 != _playListData.length) || _settings.repeat) {
@@ -318,6 +326,11 @@ var vkPlayer = function()
                 _playListPlay(_playListData.length-1);
             }
             
+        },
+
+        debugPlayList: function()
+        {
+            debug(_playListData);
         }
     }
     

@@ -44,7 +44,7 @@ var vkLibraryId   =  'vkLibrary';
 var menuConfig = [
     {
         name:   "Мои аудиозаписи",
-        action: showMyAudio
+        action: window.showMyAudio
     }
 ];
 
@@ -53,6 +53,7 @@ $(function()
     vkPlayer.init({
         id      : "jquery_jplayer"
     });
+
     vkAPI.init({
         onLogin: defaultAction,
         onLogout: clearPage

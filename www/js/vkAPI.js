@@ -4,13 +4,13 @@
 
 var vkAPI = function()
 {
-    const PUBLIC_KEY    = 'xVIlqIucGX';
+    var PUBLIC_KEY      = 'xVIlqIucGX';
     
-    const APP_ID        = 1998251;
+    var APP_ID          = 1998251;
     
-    const API_SRC       = "http://vkontakte.ru/js/api/openapi.js";
+    var API_SRC         = "http://vkontakte.ru/js/api/openapi.js";
 
-    const SETTINGS      = 11;
+    var SETTINGS        = 11;
 
     var LOGIN_BUTTON_ID = "login_button";
 

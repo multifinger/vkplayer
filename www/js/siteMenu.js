@@ -18,7 +18,7 @@ var siteMenu = function()
 
             var html =  "";
             html += "<ul>";
-            for(var i in _config) {
+            for(var i=0; i<_config.length; i++) {
                 html += "<li><a href='#' class='m"+i+"'>"+_config[i].name+"</a></li>";             
             }
             html += "</ul>";

@@ -43,9 +43,9 @@ var vkLibrary = function()
                 html +=     "<div class='playerTime' title='Длительность'>";
                 html +=         min + ":" + sec;
                 html +=     "</div>";
-                html +=     "<a href='#' onclick='return false;'>";
+                html +=     "<div>";
                 html +=         "<b>"+_playlist[i].artist+"</b> &#0151; "+_playlist[i].title;
-                html +=     "</a>";
+                html +=     "</div>";
                 html += "</li>";
                 $("ul", _element).append(html);
             }

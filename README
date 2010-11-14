@@ -8,17 +8,19 @@ READY
 - repeat, shuffle
 - drag'n'sort vkPlaylist
 - removeBut in vkPlaylist
+- drag'n'sort fix
 
 TODO
 - implement jplayer layer (vkPlayer) methods:
     add playing title/author
     add playing time / total time
     cookie saving playlists
-- FIX: Uncaught TypeError: Cannot read property 'time' of undefined
-  thows then sorting list and play
+- server connector
+- playlist save
 
 WISH LIST
 - top playing
 - search
 - friends playlists
 - drag form playlist manager
+- preload perfomance (loading slow annoying)

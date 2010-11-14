@@ -17,9 +17,12 @@ html, body {
     padding:0px;
     margin:0px;
     min-width:999px;
-    width:expression(document.body.clientWidth < 999? "999px": "auto" );
     position:relative;
     font-family: tahoma, arial, verdana, sans-serif, 'Lucida Sans';
+}
+
+body {
+    width:expression(document.body.clientWidth < 999? "999px": "auto" );
 }
 
 a img {
