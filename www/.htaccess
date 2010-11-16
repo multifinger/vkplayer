@@ -1,9 +1,14 @@
-DirectoryIndex index.php
 AddDefaultCharset UTF-8
-Options -Indexes
+Options +FollowSymLinks +ExecCGI
 
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([-a-zA-Z0-9_/]+)$ /index.php [L]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  #RewriteBase /
+
+  RewriteRule ^$ index.html [QSA]
+  RewriteRule ^([^.]+)$ $1.html [QSA]
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  RewriteRule ^(.*)$ frontend.php [QSA,L]
+</IfModule>

@@ -15,7 +15,7 @@ TODO
     add playing title/author
     add playing time / total time
     cookie saving playlists
-- server connector
+- server connector (choosen symfony from sandbox)
 - playlist save
 
 WISH LIST

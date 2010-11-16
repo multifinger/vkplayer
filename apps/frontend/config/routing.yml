@@ -1,0 +1,10 @@
+homepage:
+  url:   /
+  param: { module: vkplayer, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
