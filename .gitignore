@@ -1,3 +1,2 @@
 /cache/*
-/symfony
-/symfony.bat
+/log/*
