@@ -1,0 +1,351 @@
+Nov 17 03:45:37 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:45:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:45:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:45:37 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:45:37 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:45:37 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:45:37 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:45:37 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:45:37 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:45:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:45:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:45:37 symfony [info] {sfWebResponse} Send content (749 o)
+Nov 17 03:45:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/new with parameters array (  'module' => 'playlist',  'action' => 'new',)
+Nov 17 03:45:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:45:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:45:40 symfony [info] {playlistActions} Call "playlistActions->executeNew()"
+Nov 17 03:45:40 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 03:45:40 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 03:45:40 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:45:40 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:45:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:45:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:45:40 symfony [info] {sfWebResponse} Send content (11359 o)
+Nov 17 03:45:48 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 03:45:48 symfony [info] {sfFrontWebController} Action "vkplayer/index" does not exist
+Nov 17 03:45:48 symfony [err] {sfError404Exception} Action "vkplayer/index" does not exist.
+Nov 17 03:45:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 03:45:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:46:08 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 03:46:08 symfony [info] {sfFrontWebController} Action "vkplayer/index" does not exist
+Nov 17 03:46:08 symfony [err] {sfError404Exception} Action "vkplayer/index" does not exist.
+Nov 17 03:46:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 03:46:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:46:13 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 03:46:13 symfony [info] {sfFrontWebController} Action "vkplayer/index" does not exist
+Nov 17 03:46:13 symfony [err] {sfError404Exception} Action "vkplayer/index" does not exist.
+Nov 17 03:46:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 03:46:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:46:40 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:46:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:46:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:46:40 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:46:40 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:46:40 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:46:40 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:46:40 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:46:40 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:46:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:46:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:46:40 symfony [info] {sfWebResponse} Send content (749 o)
+Nov 17 03:46:47 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:46:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:46:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:46:47 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:46:47 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:46:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:46:47 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:46:48 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:46:48 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:46:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:46:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:46:48 symfony [info] {sfWebResponse} Send content (749 o)
+Nov 17 03:47:21 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:47:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:47:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:47:21 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:47:21 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:47:21 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:47:21 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:47:21 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:47:21 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:47:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:47:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:47:21 symfony [info] {sfWebResponse} Send content (749 o)
+Nov 17 03:47:25 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/new with parameters array (  'module' => 'playlist',  'action' => 'new',)
+Nov 17 03:47:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:47:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:47:25 symfony [info] {playlistActions} Call "playlistActions->executeNew()"
+Nov 17 03:47:25 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 03:47:25 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 03:47:25 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:47:25 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:47:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:47:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:47:25 symfony [info] {sfWebResponse} Send content (11359 o)
+Nov 17 03:47:34 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 03:47:34 symfony [info] {sfFrontWebController} Action "vkplayer/index" does not exist
+Nov 17 03:47:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:47:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:47:34 symfony [info] {defaultActions} Call "defaultActions->executeError404()"
+Nov 17 03:47:34 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib/controller/default/templates/error404Success.php"
+Nov 17 03:47:34 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 03:47:34 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 03:47:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 03:47:34 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+Nov 17 03:47:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:47:34 symfony [info] {sfWebResponse} Send content (2116 o)
+Nov 17 03:47:46 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 03:47:46 symfony [info] {sfFrontWebController} Action "vkplayer/index" does not exist
+Nov 17 03:47:46 symfony [err] {sfError404Exception} Action "vkplayer/index" does not exist.
+Nov 17 03:47:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 03:47:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:48:36 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:48:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:48:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:48:37 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:48:37 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:48:37 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:48:37 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:48:37 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:48:37 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:48:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:48:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:48:37 symfony [info] {sfWebResponse} Send content (749 o)
+Nov 17 03:51:13 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:51:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:51:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:51:13 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:51:14 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:51:14 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:51:14 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:51:14 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:51:14 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:51:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:51:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:51:14 symfony [info] {sfWebResponse} Send content (1005 o)
+Nov 17 03:51:28 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 03:51:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 03:51:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 03:51:29 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 03:51:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 03:51:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 03:51:29 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 03:51:29 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:51:29 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 03:51:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 03:51:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 03:51:29 symfony [info] {sfWebResponse} Send content (1158 o)
+Nov 17 04:04:43 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:04:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:04:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:04:43 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:04:43 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:04:43 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:04:43 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send content (4001 o)
+Nov 17 04:04:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:04:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:04:43 symfony [info] {defaultActions} Call "defaultActions->executeError404()"
+Nov 17 04:04:43 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib/controller/default/templates/error404Success.php"
+Nov 17 04:04:43 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 04:04:43 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:04:43 symfony [info] {sfWebResponse} Send content (2116 o)
+Nov 17 04:07:04 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:07:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:07:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:07:04 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:07:04 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:07:04 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:07:04 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:07:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:07:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:07:04 symfony [info] {sfWebResponse} Send content (4052 o)
+Nov 17 04:10:26 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:10:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:10:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:10:26 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:10:26 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:10:26 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:26 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:10:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:10:26 symfony [info] {sfWebResponse} Send content (4074 o)
+Nov 17 04:10:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:10:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:10:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:10:33 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:10:33 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:10:33 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:33 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:10:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:10:33 symfony [info] {sfWebResponse} Send content (4063 o)
+Nov 17 04:10:41 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:10:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:10:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:10:41 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:10:41 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:10:41 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:41 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:10:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:10:41 symfony [info] {sfWebResponse} Send content (4096 o)
+Nov 17 04:10:46 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:10:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:10:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:10:46 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:10:46 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:10:46 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:46 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:10:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:10:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:10:46 symfony [info] {sfWebResponse} Send content (4140 o)
+Nov 17 04:11:30 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:11:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:11:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:11:30 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:11:30 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:11:30 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:11:30 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:11:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:11:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:11:30 symfony [info] {sfWebResponse} Send content (4180 o)
+Nov 17 04:12:39 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:12:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:12:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:12:39 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:12:39 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:12:39 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:12:39 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:12:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:12:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:12:39 symfony [info] {sfWebResponse} Send content (4190 o)
+Nov 17 04:14:05 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:14:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:14:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:14:05 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:14:05 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:14:05 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:14:05 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:14:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:14:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:14:05 symfony [info] {sfWebResponse} Send content (4216 o)
+Nov 17 04:14:17 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:14:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:14:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:14:17 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:14:17 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:14:17 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:14:17 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send content (4216 o)
+Nov 17 04:14:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:14:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:14:17 symfony [info] {defaultActions} Call "defaultActions->executeError404()"
+Nov 17 04:14:17 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib/controller/default/templates/error404Success.php"
+Nov 17 04:14:17 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 04:14:17 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:14:17 symfony [info] {sfWebResponse} Send content (2152 o)
+Nov 17 04:15:47 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:15:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:15:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:15:47 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:15:47 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:15:47 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:15:47 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:15:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:15:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:15:47 symfony [info] {sfWebResponse} Send content (4149 o)
+Nov 17 04:15:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:15:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:15:48 symfony [info] {defaultActions} Call "defaultActions->executeError404()"
+Nov 17 04:15:48 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib/controller/default/templates/error404Success.php"
+Nov 17 04:15:48 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 04:15:48 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Nov 17 04:15:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 04:15:48 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+Nov 17 04:15:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:15:48 symfony [info] {sfWebResponse} Send content (2152 o)
+Nov 17 04:16:10 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:16:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:16:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:16:10 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:16:10 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:16:10 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:16:10 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:16:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:16:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:16:10 symfony [info] {sfWebResponse} Send content (4152 o)
+Nov 17 04:30:27 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 04:30:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:30:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:30:27 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 04:30:27 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 04:30:28 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:30:28 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 04:30:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:30:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:30:28 symfony [info] {sfWebResponse} Send content (4152 o)
+Nov 17 04:30:38 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/new with parameters array (  'module' => 'playlist',  'action' => 'new',)
+Nov 17 04:30:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:30:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:30:38 symfony [info] {playlistActions} Call "playlistActions->executeNew()"
+Nov 17 04:30:38 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 04:30:38 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:30:38 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:30:38 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:30:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:30:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:30:38 symfony [info] {sfWebResponse} Send content (11659 o)
+Nov 17 04:33:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/new with parameters array (  'module' => 'playlist',  'action' => 'new',)
+Nov 17 04:33:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:33:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:33:43 symfony [info] {playlistActions} Call "playlistActions->executeNew()"
+Nov 17 04:33:43 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 04:33:43 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:33:43 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:33:43 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:33:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:33:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:33:43 symfony [info] {sfWebResponse} Send content (11482 o)
+Nov 17 04:33:45 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/new with parameters array (  'module' => 'playlist',  'action' => 'new',)
+Nov 17 04:33:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:33:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:33:45 symfony [info] {playlistActions} Call "playlistActions->executeNew()"
+Nov 17 04:33:45 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 04:33:45 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:33:45 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:33:45 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:33:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:33:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:33:45 symfony [info] {sfWebResponse} Send content (11482 o)
+Nov 17 05:08:17 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 05:08:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 05:08:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 05:08:17 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 05:08:17 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 05:08:17 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 05:08:17 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 05:08:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 05:08:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 05:08:17 symfony [info] {sfWebResponse} Send content (4152 o)
+Nov 17 05:09:05 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'vkplayer',  'action' => 'index',)
+Nov 17 05:09:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 05:09:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 05:09:05 symfony [info] {vkplayerActions} Call "vkplayerActions->executeIndex()"
+Nov 17 05:09:05 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/vkplayer/templates/indexSuccess.php"
+Nov 17 05:09:05 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 05:09:05 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/vkplayer.php"
+Nov 17 05:09:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 05:09:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 05:09:05 symfony [info] {sfWebResponse} Send content (4152 o)

@@ -1,0 +1,142 @@
+Nov 17 04:56:53 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/create with parameters array (  'module' => 'playlist',  'action' => 'create',)
+Nov 17 04:56:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:56:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:56:53 symfony [info] {playlistActions} Call "playlistActions->executeCreate()"
+Nov 17 04:56:53 symfony [info] {playlistActions} Change template to "CURRENT/new"
+Nov 17 04:56:53 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 04:56:54 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:56:54 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:56:54 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:56:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:56:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:56:54 symfony [info] {sfWebResponse} Send content (11657 o)
+Nov 17 04:57:07 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/create with parameters array (  'module' => 'playlist',  'action' => 'create',)
+Nov 17 04:57:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:07 symfony [info] {playlistActions} Call "playlistActions->executeCreate()"
+Nov 17 04:57:07 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:07 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO playlist (name, vk_user_id, created_at, updated_at) VALUES (?, ?, ?, ?) - (клёвый музончик, 30819, 2005-01-02 00:01:00, 2007-03-02 01:02:00)
+Nov 17 04:57:08 symfony [info] {sfFrontWebController} Redirect to "http://vkplayer.ru/frontend_dev.php/playlist/edit/id/1"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send header "Location: http://vkplayer.ru/frontend_dev.php/playlist/edit/id/1"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send content (125 o)
+Nov 17 04:57:08 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/edit/id/1 with parameters array (  'module' => 'playlist',  'action' => 'edit',  'id' => '1',)
+Nov 17 04:57:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:08 symfony [info] {playlistActions} Call "playlistActions->executeEdit()"
+Nov 17 04:57:08 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p WHERE (p.id = ?) LIMIT 1 - (1)
+Nov 17 04:57:08 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/editSuccess.php"
+Nov 17 04:57:08 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:57:08 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:08 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:08 symfony [info] {sfWebResponse} Send content (12254 o)
+Nov 17 04:57:11 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 04:57:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:11 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 04:57:11 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:11 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 04:57:11 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 04:57:11 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:11 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:11 symfony [info] {sfWebResponse} Send content (1099 o)
+Nov 17 04:57:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/show/id/1 with parameters array (  'module' => 'playlist',  'action' => 'show',  'id' => '1',)
+Nov 17 04:57:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:16 symfony [info] {playlistActions} Call "playlistActions->executeShow()"
+Nov 17 04:57:16 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p WHERE (p.id = ?) LIMIT 1 - (1)
+Nov 17 04:57:16 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/showSuccess.php"
+Nov 17 04:57:16 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:16 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:16 symfony [info] {sfWebResponse} Send content (1122 o)
+Nov 17 04:57:20 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/edit/id/1 with parameters array (  'module' => 'playlist',  'action' => 'edit',  'id' => '1',)
+Nov 17 04:57:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:20 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:20 symfony [info] {playlistActions} Call "playlistActions->executeEdit()"
+Nov 17 04:57:20 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:20 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p WHERE (p.id = ?) LIMIT 1 - (1)
+Nov 17 04:57:20 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/editSuccess.php"
+Nov 17 04:57:20 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:57:20 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:20 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:20 symfony [info] {sfWebResponse} Send content (12254 o)
+Nov 17 04:57:27 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 04:57:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:27 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 04:57:27 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:27 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 04:57:27 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 04:57:27 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:27 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:27 symfony [info] {sfWebResponse} Send content (1099 o)
+Nov 17 04:57:28 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/new with parameters array (  'module' => 'playlist',  'action' => 'new',)
+Nov 17 04:57:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:29 symfony [info] {playlistActions} Call "playlistActions->executeNew()"
+Nov 17 04:57:29 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/newSuccess.php"
+Nov 17 04:57:29 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:57:29 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:29 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:29 symfony [info] {sfWebResponse} Send content (11482 o)
+Nov 17 04:57:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /playlist with parameters array (  'module' => 'playlist',  'action' => 'index',)
+Nov 17 04:57:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:30 symfony [info] {playlistActions} Call "playlistActions->executeIndex()"
+Nov 17 04:57:30 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:30 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p - ()
+Nov 17 04:57:30 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/indexSuccess.php"
+Nov 17 04:57:30 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:30 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:30 symfony [info] {sfWebResponse} Send content (1099 o)
+Nov 17 04:57:32 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/show/id/1 with parameters array (  'module' => 'playlist',  'action' => 'show',  'id' => '1',)
+Nov 17 04:57:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:32 symfony [info] {playlistActions} Call "playlistActions->executeShow()"
+Nov 17 04:57:32 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:32 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p WHERE (p.id = ?) LIMIT 1 - (1)
+Nov 17 04:57:32 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/showSuccess.php"
+Nov 17 04:57:32 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:32 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:32 symfony [info] {sfWebResponse} Send content (1122 o)
+Nov 17 04:57:34 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/edit/id/1 with parameters array (  'module' => 'playlist',  'action' => 'edit',  'id' => '1',)
+Nov 17 04:57:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 04:57:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 04:57:35 symfony [info] {playlistActions} Call "playlistActions->executeEdit()"
+Nov 17 04:57:35 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 04:57:35 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id, p.created_at AS p__created_at, p.updated_at AS p__updated_at FROM playlist p WHERE (p.id = ?) LIMIT 1 - (1)
+Nov 17 04:57:35 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/editSuccess.php"
+Nov 17 04:57:35 symfony [info] {sfPartialView} Render "W:\home\vkplayer.multi\apps\frontend\modules/playlist/templates/_form.php"
+Nov 17 04:57:35 symfony [info] {sfPHPView} Decorate content with "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:35 symfony [info] {sfPHPView} Render "W:\home\vkplayer.multi\apps\frontend\templates/layout.php"
+Nov 17 04:57:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 17 04:57:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 17 04:57:35 symfony [info] {sfWebResponse} Send content (12254 o)
+Nov 17 05:05:29 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /playlist/edit/id/1 with parameters array (  'module' => 'playlist',  'action' => 'edit',  'id' => '1',)
+Nov 17 05:05:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 17 05:05:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 17 05:05:29 symfony [info] {playlistActions} Call "playlistActions->executeEdit()"
+Nov 17 05:05:30 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Nov 17 05:05:30 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.vk_user_id AS p__vk_user_id FROM playlist p WHERE (p.id = ?) LIMIT 1 - (1)
+Nov 17 05:05:30 symfony [err] {sfError404Exception} Object playlist does not exist (1).
+Nov 17 05:05:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Nov 17 05:05:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"

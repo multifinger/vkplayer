@@ -1,0 +1,14 @@
+Playlist:
+  columns:
+    name:         { type: string(255), notnull: true}
+    vk_user_id:   { type: integer(11) }
+
+PlaylistItem:
+  columns:
+    playlist_id:  { type: integer, notnull: true }
+    title:        { type: string(255) }
+    author:       { type: string(255) }
+    mp3:          { type: string(255) }
+    time:         { type: int(5) }
+  relations:
+    Playlist: { onDelete: CASCADE, local: playlist_id, foreign: id, foreignAlias: PlaylistItems }

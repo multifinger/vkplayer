@@ -1,0 +1,6 @@
+
+indexSuccess:
+  stylesheets:    [theme.css, jplayer.vkplayer.css]
+  javascripts:    [jsCoreExt.js, jquery-1.4.4.min.js, jquery-ui-1.8.6.custom.min.js, jquery.jplayer.min.js, vkLibrary.js, siteMenu.js, vkPlayer.js, http://vkontakte.ru/js/api/openapi.js, vkAPI.js, main.js]
+  has_layout:     true
+  layout:         vkplayer

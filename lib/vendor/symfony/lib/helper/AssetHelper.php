@@ -135,7 +135,7 @@ function javascript_include_tag()
       $tag = comment_as_conditional($condition, $tag);
     }
 
-    $html .= $tag."\n";
+    $html .= $tag."\n        ";
   }
 
   return $html;
@@ -233,7 +233,7 @@ function stylesheet_tag()
       $tag = comment_as_conditional($condition, $tag);
     }
 
-    $html .= $tag."\n";
+    $html .= $tag."\n        ";
   }
 
   return $html;
@@ -437,8 +437,9 @@ function include_metas()
   $i18n = sfConfig::get('sf_i18n') ? $context->getI18N() : null;
   foreach ($context->getResponse()->getMetas() as $name => $content)
   {
-    echo tag('meta', array('name' => $name, 'content' => null === $i18n ? $content : $i18n->__($content)))."\n";
+    echo tag('meta', array('name' => $name, 'content' => null === $i18n ? $content : $i18n->__($content)))."\n        ";
   }
+  echo "\n";
 }
 
 /**
@@ -461,8 +462,9 @@ function include_http_metas()
 {
   foreach (sfContext::getInstance()->getResponse()->getHttpMetas() as $httpequiv => $value)
   {
-    echo tag('meta', array('http-equiv' => $httpequiv, 'content' => $value))."\n";
+    echo tag('meta', array('http-equiv' => $httpequiv, 'content' => $value))."\n        ";
   }
+  echo "\n";
 }
 
 /**
@@ -499,6 +501,7 @@ function get_javascripts()
   {
     $html .= javascript_include_tag($file, $options);
   }
+  $html .= "\n";
 
   return $html;
 }
@@ -532,6 +535,7 @@ function get_stylesheets()
   {
     $html .= stylesheet_tag($file, $options);
   }
+  $html .= "\n";
 
   return $html;
 }

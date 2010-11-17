@@ -2,6 +2,16 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'sqlite:/tmp/sf_sandbox/data/sandbox.db'
+      dsn: 'mysql:host=localhost;dbname=vkplayer'
       username: root
       password: null
+
+dev:
+local:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=vkplayer'
+      username: root
+      password: null
+
