@@ -13,4 +13,11 @@
 class Playlist extends BasePlaylist
 {
 
+    public function save(Doctrine_Connection $conn = null)
+    {
+        // custom logic for save
+        
+        return parent::save($conn);
+    }
+
 }

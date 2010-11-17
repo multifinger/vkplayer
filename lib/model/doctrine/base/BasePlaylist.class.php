@@ -16,9 +16,9 @@
  * @method Playlist            setVkUserId()      Sets the current record's "vk_user_id" value
  * @method Playlist            setPlaylistItems() Sets the current record's "PlaylistItems" collection
  * 
- * @package    sf_sandbox
+ * @package    vkplayer
  * @subpackage model
- * @author     Your name here
+ * @author     multifinger
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePlaylist extends sfDoctrineRecord

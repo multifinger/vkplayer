@@ -25,9 +25,9 @@
  * @method PlaylistItem setTime()        Sets the current record's "time" value
  * @method PlaylistItem setPlaylist()    Sets the current record's "Playlist" value
  * 
- * @package    sf_sandbox
+ * @package    vkplayer
  * @subpackage model
- * @author     Your name here
+ * @author     multifinger
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePlaylistItem extends sfDoctrineRecord

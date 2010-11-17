@@ -81,10 +81,13 @@ class sfDoctrineDatabase extends sfDatabase
         $name = constant('Doctrine_Core::ATTR_'.strtoupper($name));
       }
 
-      if (is_string($value))
-      {
-        $valueConstantName = 'Doctrine_Core::'.strtoupper($stringName).'_'.strtoupper($value);
-        $value = defined($valueConstantName) ? constant($valueConstantName) : $value;
+      // FIX: http://www.prettyscripts.com/framework/symfony/symfony-doctrine-build-all-and-table-collation
+      if (is_string($value)) {
+        if (defined('Doctrine::' . strtoupper($stringName) . '_' . strtoupper($value))) {
+          $value = constant('Doctrine::'.strtoupper($stringName) . '_' . strtoupper($value));
+        } else {
+          $value = strtoupper($value);
+        }
       }
 
       $this->_doctrineConnection->setAttribute($name, $value);

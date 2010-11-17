@@ -203,7 +203,22 @@ var vkPlayer = function()
 
     function _setPlayListHeader(header)
     {
-        $("h1", _playList).html(header);
+        var save = "<a href='#' class='save'>Сохранить</a>"
+        $("h1", _playList).html(header+save);
+        $("h1 .save", _playList).click(function(e){
+
+            $.ajax({
+                url     : '/frontend_dev.php/vkplayer/savePlaylist',
+                data    : {
+                    artist  : "asdasd",
+                    mp3     : "qqq.mp3"
+                },
+                type    : "POST"
+            });
+            
+            e.preventDefault();
+            e.stopPropagation();
+        });
     }
 
     function _toggleShuffle(b)
@@ -320,10 +335,9 @@ var vkPlayer = function()
 
         createPlaylist: function(name)
         {
-            var h1 = 'Играет <a href="javascript:void(0);">'+ name + '</a>';
-            $('h1', _playList).html(h1);
+            var header = 'Играет <a href="javascript:void(0);">'+ name + '</a>';
+            _setPlayListHeader(header);
             _redrawPlayList();
-            
         },
 
         pushPlaylist: function(data, play)

@@ -5,3 +5,7 @@ all:
       dsn: 'mysql:host=localhost;dbname=vkplayer'
       username: root
       password: null
+      encoding: utf8
+      attributes:
+        default_table_collate: utf8_general_ci
+        default_table_charset: utf8

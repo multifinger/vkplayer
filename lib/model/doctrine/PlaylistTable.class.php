@@ -16,4 +16,9 @@ class PlaylistTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Playlist');
     }
+
+    public static function savePlaylist($data)
+    {
+        
+    }
 }
