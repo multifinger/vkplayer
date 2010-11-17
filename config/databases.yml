@@ -5,13 +5,3 @@ all:
       dsn: 'mysql:host=localhost;dbname=vkplayer'
       username: root
       password: null
-
-dev:
-local:
-  doctrine:
-    class: sfDoctrineDatabase
-    param:
-      dsn: 'mysql:host=localhost;dbname=vkplayer'
-      username: root
-      password: null
-
