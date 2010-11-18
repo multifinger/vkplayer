@@ -21,6 +21,8 @@ var vkPlayer = function()
 
     var _playList           = null;
 
+    var _playListId         = 0;
+
     var _opts =
     {
         id              : "jplayer",
@@ -59,6 +61,19 @@ var vkPlayer = function()
         _playItem = index;
         _element.jPlayer("setFile", _playListData[index].mp3);
         _element.jPlayer("play");
+
+        $("#"+_opts.listitem+_playItem)
+        .removeClass("jplayer_playList_current")
+        .parent()
+        .removeClass("jplayer_playList_current");
+
+        $("#"+_opts.listitem+index)
+        .addClass("jplayer_playList_current")
+        .parent()
+        .addClass("jplayer_playList_current");
+
+        _playItem = index;
+        _element.jPlayer("setFile", _playListData[_playItem].mp3);
     }
 
     function _playListNext()
@@ -95,31 +110,18 @@ var vkPlayer = function()
         _redrawPlayList();
     }
 
-    function _playListConfig( index )
+    function _playListInit()
     {
         if (_playList) _playList.html("<h1></h1><ul></ul>");
-        
-        if (_playListData.length==0) return;
-        
-        index = index || 0;
-                
-        $("#"+_opts.listitem+_playItem)
-        .removeClass("jplayer_playList_current")
-        .parent()
-        .removeClass("jplayer_playList_current");
-            
-        $("#"+_opts.listitem+index)
-        .addClass("jplayer_playList_current")
-        .parent()
-        .addClass("jplayer_playList_current");
-            
-        _playItem = index;
-        _element.jPlayer("setFile", _playListData[_playItem].mp3);
+
+        _loadPlayList();
     }
 
     function _redrawPlayList()
     {
-        $("ul",_playList).html('');
+        $("ul", _playList).html('');
+
+        _savePlayList();
         
         if (_playListData.length) {
             
@@ -201,24 +203,94 @@ var vkPlayer = function()
         }
     }
 
-    function _setPlayListHeader(header)
+    function _onLoadPlaylist(data)
     {
-        var save = "<a href='#' class='save'>Сохранить</a>"
-        $("h1", _playList).html(header+save);
-        $("h1 .save", _playList).click(function(e){
-
-            $.ajax({
-                url     : '/frontend_dev.php/vkplayer/savePlaylist',
-                data    : {
-                    artist  : "asdasd",
-                    mp3     : "qqq.mp3"
-                },
-                type    : "POST"
+        if (!data) return;
+        _playListId = data.id;
+        _setPlayListName(data.name);
+        _playListData = [];
+        for (var i=0; i<data.PlaylistItems.length; i++) {
+            var it = data.PlaylistItems[i];
+            debug(it);
+            _playListData.push({
+                artist  : it.artist,
+                title   : it.title,
+                mp3     : it.mp3,
+                time    : it.time
             });
-            
-            e.preventDefault();
-            e.stopPropagation();
+        }
+            _redrawPlayList();
+    }
+
+    function _loadPlayList()
+    {
+        var success = function(data)
+        {
+            _onLoadPlaylist(data);
+        }
+
+        $.ajax({
+            url         : '/frontend_dev.php/vkplayer/loadPlaylist',
+            type        : "POST",
+            dataType    : "json",
+            success     : success
         });
+    }
+
+    function _onSavePlayList(e)
+    {
+        _savePlayList(_onLoadPlaylist);
+        e.preventDefault();
+        e.stopPropagation();
+        
+    }
+
+    function _savePlayList(callback)
+    {
+        var data = {};
+
+        data.id     = _playListId;
+        data.length = _playListData.length;
+
+        for (var i=0; i<_playListData.length; i++) {
+            if (_playListData[i].time > 0) {
+                data['item_artist_'+i]  = _playListData[i].artist;
+                data['item_title_'+i]   = _playListData[i].title;
+                data['item_mp3_'+i]     = _playListData[i].mp3;
+                data['item_time_'+i]    = _playListData[i].time;
+            }
+        }
+
+        var success = function(data)
+        {
+            if (callback) {
+                callback(data);
+            }
+            //_onLoadPlaylist(data);
+        }
+
+        $.ajax({
+            url         : '/frontend_dev.php/vkplayer/savePlaylist',
+            data        : data,
+            type        : "POST",
+            dataType    : "json",
+            success     : success
+        });
+
+        ;
+    }
+
+    function _setPlayListName(header)
+    {
+        header = "<!--a href='#' class='save'>&nbsp;</a-->"+
+                 "<div class='text'>"+
+                    "Играет <a href='javascript:void(0);'>"+header+"</a>"+
+                 "</div>";
+        $("h1", _playList).html(header);
+
+        $("h1 .save", _playList)
+        .unbind('click.playlistSave')
+        .bind('click.playlistSave', _onSavePlayList);
     }
 
     function _toggleShuffle(b)
@@ -253,14 +325,14 @@ var vkPlayer = function()
             _opts = $.extend(_opts, opts);
 
             _playList = $('#'+_opts.playlist);
+            _playListInit();
 
             this.show(_opts.opacity);
             
             _element = $("#"+_opts.id)
             .jPlayer({
-                ready: function() {
+                ready: function() {        
                     _redrawPlayList();
-                    _playListConfig();
                 },
                 swfPath         : _opts.swfPath,
                 nativeSupport   : _opts.nativeSupport,
@@ -301,8 +373,6 @@ var vkPlayer = function()
             
             if(_opts.autoplay) {
                 _playListPlay( _playItem );
-            } else {
-                _playListConfig( _playItem );
             }
         },
 
@@ -328,15 +398,10 @@ var vkPlayer = function()
             _redrawPlayList();
         },
 
-        createEmptyPlaylist: function()
-        {
-           
-        },
-
         createPlaylist: function(name)
         {
-            var header = 'Играет <a href="javascript:void(0);">'+ name + '</a>';
-            _setPlayListHeader(header);
+            var header = name;
+            _setPlayListName(header);
             _redrawPlayList();
         },
 
@@ -373,7 +438,12 @@ var vkPlayer = function()
 
         setPlaylistHeader: function(header)
         {
-            _setPlayListHeader(header);
+            _setPlayListName(header);
+        },
+
+        loadPlayList: function()
+        {
+            _loadPlayList();
         }
     }
     

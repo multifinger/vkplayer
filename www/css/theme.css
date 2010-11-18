@@ -1,16 +1,3 @@
-@font-face {
-    font-family: "MyTahoma";
-    font-weight: normal;
-    src: url( /res/font/Tahoma_Regular.eot );
-    src: local("Tahoma_Regular"), url( /res/font/Tahoma_Regular.ttf ) format("truetype");
-}
-@font-face {
-    font-family: "MyTahoma";
-    font-weight: bold;
-    src: url( /res/font/Tahoma_Bold.eot );
-    src: local("Tahoma_Bold"), url( /res/font/Tahoma_Bold.ttf ) format("truetype");
-}
-
 html, body {
     width: 100%;
     height: 100%;
@@ -167,6 +154,18 @@ p, h1, h2, h3 {
 #vkLibrary h1 a,
 #playlistPlayer h1 a {
     color: #2b587a;
+}
+#playlistPlayer h1 a.save {
+    display: block;
+    position: absolute;
+    margin: 5px 0 0 0;
+    width: 14px;
+    height: 14px;
+    background: url('/img/theme/save.gif');
+    text-decoration: none;
+}
+#playlistPlayer h1 .text {
+    padding: 0 0 0 20px;
 }
 #vkLibrary ul,
 #playlistPlayer ul {

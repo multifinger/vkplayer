@@ -7,7 +7,7 @@ PlaylistItem:
   columns:
     playlist_id:  { type: integer, notnull: true }
     title:        { type: string(255) }
-    author:       { type: string(255) }
+    artist:       { type: string(255) }
     mp3:          { type: string(255) }
     time:         { type: int(5) }
   relations:

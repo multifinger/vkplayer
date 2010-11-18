@@ -3,28 +3,6 @@
 class vkUser
 {
 
-    protected $personalData = null;
-
-    public function __construct()
-    {
-        $this->personalData = new PersonalData();
-    }
-
-    public function getId()
-    {
-        return $this->personalData->id;
-    }
-
-    public function getEmail()
-    {
-        return $this->personalData->email;
-    }
-
-    public function hydrate($personalData)
-    {
-        $this->personalData = $personalData;
-    }
-
     public static function getSession()
     {
         $APP_ID     = sfConfig::get('app_vk_app_id');
@@ -33,9 +11,6 @@ class vkUser
         $session = array();
         $member = FALSE;
         $valid_keys = array('expire', 'mid', 'secret', 'sid', 'sig');
-
-        
-
         $app_cookie = $_COOKIE['vk_app_' . $APP_ID];
         if ($app_cookie) {
             $session_data = explode('&', $app_cookie, 10);
@@ -68,9 +43,7 @@ class vkUser
                 );
             }
         }
-        
         return $member;
-
     }
 
 }
