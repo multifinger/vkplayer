@@ -26,13 +26,14 @@ var vkLibrary = function()
 
         displayList: function()
         {
+            var html = "";
+            
             for (var i=0; i<_playlist.length; i++) {
 
                 var min = Math.floor(_playlist[i].time / 60);
                 var sec = _playlist[i].time % 60;
                 sec = sec<10 ? "0" + sec : sec;
 
-                var html = "";
                 html += "<li>";
                 html +=     "<a class='playerAdd' href='#' onclick='vkLibrary.playerPush("+i+"); return false;' title='Добавить в плейлист'>";
                 html +=         "&nbsp;";
@@ -47,8 +48,9 @@ var vkLibrary = function()
                 html +=         "<b>"+_playlist[i].artist+"</b> &#0151; "+_playlist[i].title;
                 html +=     "</div>";
                 html += "</li>";
-                $("ul", _element).append(html);
             }
+            
+            $("ul", _element).html(html);
         },
 
         setHeader: function(h)
@@ -63,7 +65,7 @@ var vkLibrary = function()
         },
 
         playerPush: function(i, play)
-        {            
+        {
             vkPlayer.pushPlaylist({
                 artist  :   _playlist[i].artist,
                 title   :   _playlist[i].title,
