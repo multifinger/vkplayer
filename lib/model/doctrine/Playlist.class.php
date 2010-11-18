@@ -12,12 +12,8 @@
  */
 class Playlist extends BasePlaylist
 {
-
-    public function save(Doctrine_Connection $conn = null)
+    public static function find($id)
     {
-        // custom logic for save
-        
-        return parent::save($conn);
+        return Doctrine_Core::getTable('Playlist')->find(array($id));
     }
-
 }

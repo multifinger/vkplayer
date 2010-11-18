@@ -15,7 +15,7 @@ abstract class BasePlaylistItemFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'playlist_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Playlist'), 'add_empty' => true)),
       'title'       => new sfWidgetFormFilterInput(),
-      'author'      => new sfWidgetFormFilterInput(),
+      'artist'      => new sfWidgetFormFilterInput(),
       'mp3'         => new sfWidgetFormFilterInput(),
       'time'        => new sfWidgetFormFilterInput(),
     ));
@@ -23,7 +23,7 @@ abstract class BasePlaylistItemFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'playlist_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Playlist'), 'column' => 'id')),
       'title'       => new sfValidatorPass(array('required' => false)),
-      'author'      => new sfValidatorPass(array('required' => false)),
+      'artist'      => new sfValidatorPass(array('required' => false)),
       'mp3'         => new sfValidatorPass(array('required' => false)),
       'time'        => new sfValidatorPass(array('required' => false)),
     ));
@@ -48,7 +48,7 @@ abstract class BasePlaylistItemFormFilter extends BaseFormFilterDoctrine
       'id'          => 'Number',
       'playlist_id' => 'ForeignKey',
       'title'       => 'Text',
-      'author'      => 'Text',
+      'artist'      => 'Text',
       'mp3'         => 'Text',
       'time'        => 'Text',
     );

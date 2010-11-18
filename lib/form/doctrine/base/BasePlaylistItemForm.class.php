@@ -18,7 +18,7 @@ abstract class BasePlaylistItemForm extends BaseFormDoctrine
       'id'          => new sfWidgetFormInputHidden(),
       'playlist_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Playlist'), 'add_empty' => false)),
       'title'       => new sfWidgetFormInputText(),
-      'author'      => new sfWidgetFormInputText(),
+      'artist'      => new sfWidgetFormInputText(),
       'mp3'         => new sfWidgetFormInputText(),
       'time'        => new sfWidgetFormInputText(),
     ));
@@ -27,7 +27,7 @@ abstract class BasePlaylistItemForm extends BaseFormDoctrine
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'playlist_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Playlist'))),
       'title'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'author'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'artist'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'mp3'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'time'        => new sfValidatorPass(array('required' => false)),
     ));

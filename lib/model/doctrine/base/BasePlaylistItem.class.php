@@ -7,20 +7,20 @@
  * 
  * @property integer $playlist_id
  * @property string $title
- * @property string $author
+ * @property string $artist
  * @property string $mp3
  * @property int $time
  * @property Playlist $Playlist
  * 
  * @method integer      getPlaylistId()  Returns the current record's "playlist_id" value
  * @method string       getTitle()       Returns the current record's "title" value
- * @method string       getAuthor()      Returns the current record's "author" value
+ * @method string       getArtist()      Returns the current record's "artist" value
  * @method string       getMp3()         Returns the current record's "mp3" value
  * @method int          getTime()        Returns the current record's "time" value
  * @method Playlist     getPlaylist()    Returns the current record's "Playlist" value
  * @method PlaylistItem setPlaylistId()  Sets the current record's "playlist_id" value
  * @method PlaylistItem setTitle()       Sets the current record's "title" value
- * @method PlaylistItem setAuthor()      Sets the current record's "author" value
+ * @method PlaylistItem setArtist()      Sets the current record's "artist" value
  * @method PlaylistItem setMp3()         Sets the current record's "mp3" value
  * @method PlaylistItem setTime()        Sets the current record's "time" value
  * @method PlaylistItem setPlaylist()    Sets the current record's "Playlist" value
@@ -43,7 +43,7 @@ abstract class BasePlaylistItem extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('author', 'string', 255, array(
+        $this->hasColumn('artist', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));
