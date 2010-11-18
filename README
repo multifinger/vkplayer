@@ -9,18 +9,17 @@ READY
 - drag'n'sort vkPlaylist
 - removeBut in vkPlaylist
 - drag'n'sort fix
+- server connector
+- saving and load playlist from database (1 per user)
 
 TODO
 - implement jplayer layer (vkPlayer) methods:
     add playing title/author
     add playing time / total time
-    cookie saving playlists
-- server connector (choosen symfony from sandbox)
-- playlist save
 
 WISH LIST
 - top playing
 - search
 - friends playlists
 - drag form playlist manager
-- preload perfomance (loading slow annoying)
+- .mp3 preload perfomance (loading slow annoying)
