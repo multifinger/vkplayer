@@ -6,6 +6,14 @@ prod:
     no_script_name:         true
     logging_enabled:        false
 
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              true
+    no_script_name:         false
+    etag:                   false
+
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
@@ -14,16 +22,8 @@ dev:
     no_script_name:         false
     etag:                   false
 
-test:
-  .settings:
-    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
-    cache:                  false
-    web_debug:              false
-    no_script_name:         false
-    etag:                   false
-
 all:
-  .settings:
+  .settings:    
     # Form security secret (CSRF protection)
     csrf_secret:            1b1783c5ae00e1d90926fb970d5df01c40c8ab98
 
@@ -33,3 +33,5 @@ all:
 
     # Enable the database manager
     use_database:           true
+    #30 days session
+    timeout:                2592000

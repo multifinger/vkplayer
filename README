@@ -11,11 +11,17 @@ READY
 - drag'n'sort fix
 - server connector
 - saving and load playlist from database (1 per user)
+- refactor & fix
 
 TODO
-- implement jplayer layer (vkPlayer) methods:
-    add playing title/author
-    add playing time / total time
+ view
+ - add playing title/author
+ - add playing time / total time
+ - add song line
+ - fixed header
+ - current playListItem highlight
+ js
+ - single save request
 
 WISH LIST
 - top playing

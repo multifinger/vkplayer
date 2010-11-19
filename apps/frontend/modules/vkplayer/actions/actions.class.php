@@ -9,6 +9,11 @@ class vkplayerActions extends sfActions
                 &&  $this->vkSession['id'];
     }
 
+    private function isUser()
+    {
+        return $this->vkSession['id'];
+    }
+
 
     public function preExecute()
     {
@@ -25,7 +30,11 @@ class vkplayerActions extends sfActions
 
     public function executeLoadPlaylist(sfWebRequest $request)
     {
-        $this->forward404Unless($this->isUserPOST($request));
+        $this->forward404Unless($request->isMethod(sfRequest::POST));
+
+        if (!$this->isUser()) {
+            return $this->renderJSON(false);
+        }
 
         $q = Doctrine_Query::create()
             ->from('Playlist p')

@@ -6,7 +6,13 @@
         <?php include_title() ?>
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_stylesheets() ?>
-        <script type="text/javascript">_DEBUG=true;</script>
+        <script type="text/javascript">
+            _DEBUG = <?php echo json_encode(sfConfig::get("sf_web_debug", false)); ?>;
+            var serverUrl = {
+                savePlaylist : <?php echo json_encode(url_for("vkplayer/savePlaylist")); ?>,
+                loadPlaylist : <?php echo json_encode(url_for("vkplayer/loadPlaylist")); ?>
+            }
+        </script>
         <?php include_javascripts() ?>
     </head>
     <body>

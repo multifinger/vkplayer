@@ -26,7 +26,6 @@ function showMyAudio()
             vkLibrary.setList(playlist);
             vkLibrary.setHeader("Мои аудиозаписи");
             vkLibrary.displayList();
-            vkPlayer.createPlaylist('мой список');
         }
     });
 }
@@ -54,7 +53,7 @@ $(function()
 {
     vkPlayer.init({
         id      : "jquery_jplayer",
-        opacity : 0
+        opacity : 1
     });
 
     vkAPI.init({
