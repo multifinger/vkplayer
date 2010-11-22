@@ -29,6 +29,12 @@ var vkPlayer = function()
 
     var _saveState          = false;
 
+    var _authorised         = false;
+
+    var _xhr                = false;
+
+    var _xhrTimeoutId       = false;
+
     var _opts =
     {
         id              : "jplayer",
@@ -162,21 +168,20 @@ var vkPlayer = function()
         .sortable( {cursor:"move"} )
         .bind("sortstop.sorting", _onSortStop);
 
-        _setPlayListName(_playListName);        
+        _setPlayListName(_playListName);
+
         $("h1 .save", _playList).click(_savePlayList);
 
-        _loadPlayList();
+        // _loadPlayList();
     }
 
     function _redrawPlayList()
     {
         debug(">>> _redrawPlayList");
 
-        _saveState = false;
-
         if (_playListData.length) {
             
-            var li = ""
+            var li = "";
 
             for (var i=0; i < _playListData.length; i++) {
 
@@ -201,10 +206,12 @@ var vkPlayer = function()
                 li += "</li>";
             }
 
-            $("ul",_playList).html(li);
+            $("ul", _playList).html(li);
 
             $("ul li .play",   _playList).click(_onPlayBut);
             $('ul li .delete', _playList).click(_onDeleteBut);
+        } else if (_playList) {
+            $("ul", _playList).html("");
         }
 
         _savePlayList();
@@ -213,6 +220,10 @@ var vkPlayer = function()
     function _loadPlayList()
     {
         debug(">>> _loadPlayList");
+
+        if (!_authorised) {
+            return;
+        }
 
         $.ajax({
             url         : serverUrl.loadPlaylist,
@@ -226,7 +237,7 @@ var vkPlayer = function()
     {
         debug(">>> _savePlayList "+callback);
 
-        if (_saveState) return;
+        if (_saveState || !_authorised) return;
 
         var data = {};
 
@@ -266,6 +277,11 @@ var vkPlayer = function()
     {
         debug(">>> _setPlayListName "+name);
         
+        if (name=="") {
+            _clearPlayListName();
+            return;
+        }
+
         _playListName = name;
         
         var html = "";
@@ -274,6 +290,14 @@ var vkPlayer = function()
         html +=     "Играет <a href='javascript:void(0);'>"+name+"</a>";
         html += "</div>";
         $("h1", _playList).html(html);
+    }
+
+    function _clearPlayListName()
+    {
+        debug(">>> _clearPlayListName ");
+
+        _playListName = "";
+        $("h1", _playList).html("");
     }
 
     function _toggleShuffle(b)
@@ -310,9 +334,9 @@ var vkPlayer = function()
             _playerContainer = $(_opts.playerSelector);
         }
 
-        /*_playerContainer.css({
+        _playerContainer.css({
             opacity : val
-        });*/
+        });
     }
 
     // EVENT HANDLERS
@@ -457,6 +481,7 @@ var vkPlayer = function()
 
         clearPlaylist: function()
         {
+            _clearPlayListName();
             _playListData = [];
             _redrawPlayList();
         },
@@ -503,6 +528,12 @@ var vkPlayer = function()
         loadPlayList: function()
         {
             _loadPlayList();
+        },
+
+        authorise: function(bool)
+        {
+            bool = bool ? true : false;
+            _authorised = bool;
         }
     }
     

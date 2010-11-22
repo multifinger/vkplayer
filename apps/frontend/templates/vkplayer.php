@@ -23,7 +23,7 @@
                 <div class="header_r"></div>
 
                 <div id="jquery_jplayer"></div>
-                <div class="header_logo"><a href="#">vkplayer</a></div>
+                <div class="header_logo"><a href="#">playvk.ru</a></div>
                 <div class="header_user" id="header_user"></div>
                 <div class="header_logout" id="header_logout">Выйти</div>
                 <div class="jp-playlist-player">

@@ -4,7 +4,10 @@
 
 function defaultAction()
 {
-    vkPlayer.show(1);
+    //vkPlayer.authorise(1);
+    //vkPlayer.show(1);
+    //vkPlayer.setPlaylistName("мой первый список");
+    //vkPlayer.loadPlayList();
     siteMenu.init(siteMenuId, menuConfig);
     siteMenu.show(0);
 }
@@ -34,8 +37,8 @@ function clearPage()
 {
     siteMenu.clear();
     vkLibrary.clear();
+    vkPlayer.authorise(0);
     vkPlayer.clearPlaylist();
-    vkPlayer.setPlaylistHeader("");
     vkPlayer.show(0);
 }
 
@@ -44,8 +47,8 @@ var vkLibraryId =  'vkLibrary';
 
 var menuConfig = [
     {
-        name:   "Мои аудиозаписи",
-        action: window.showMyAudio
+        name    : "Мои аудиозаписи",
+        action  : window.showMyAudio
     }
 ];
 
@@ -53,7 +56,7 @@ $(function()
 {
     vkPlayer.init({
         id      : "jquery_jplayer",
-        opacity : 1
+        opacity : 0
     });
 
     vkAPI.init({

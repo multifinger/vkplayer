@@ -11,7 +11,15 @@ class vkUser
         $session = array();
         $member = FALSE;
         $valid_keys = array('expire', 'mid', 'secret', 'sid', 'sig');
-        $app_cookie = $_COOKIE['vk_app_' . $APP_ID];
+
+        $cookie_index = 'vk_app_' . $APP_ID;
+        
+        if (!isset($_COOKIE[$cookie_index])) {
+            return false;
+        }
+        
+        $app_cookie = $_COOKIE[$cookie_index];
+
         if ($app_cookie) {
             $session_data = explode('&', $app_cookie, 10);
             foreach ($session_data as $pair) {
