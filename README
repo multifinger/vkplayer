@@ -1,4 +1,5 @@
-DEVELOPER VERSION 0.2
+DEVELOPER VERSION 0.3
+
 
 READY
 - vkOpenAPI authentication
@@ -13,6 +14,7 @@ READY
 - saving and load playlist from database (1 per user)
 - refactor & fix
 
+
 TODO
  view
  - add playing title/author
@@ -22,6 +24,9 @@ TODO
  - current playListItem highlight
  js
  - single save request
+
+ - FIX: single song delete (save but not redraw)
+
 
 WISH LIST
 - top playing

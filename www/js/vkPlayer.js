@@ -70,10 +70,10 @@ var vkPlayer = function()
             swfPath         : _opts.swfPath,
             nativeSupport   : _opts.nativeSupport,
             warningAlerts   : _opts.warningAlerts,
-            errorAlerts     : _opts.errorAlerts,
-            onSoundComplete : _onSoundComplete
+            errorAlerts     : _opts.errorAlerts
+            //onSoundComplete : _onSoundComplete
         });
-        //_element.jPlayer("onSoundComplete", _onSoundComplete);
+        _element.jPlayer("onSoundComplete", _onSoundComplete);
 
         _toggleShuffle(_settings.shuffle);
         _toggleRepeat(_settings.repeat);
@@ -89,6 +89,7 @@ var vkPlayer = function()
 
     function _playListPlay(index)
     {
+        index *= 1;
         debug(">>> _playListPlay "+index);
 
         if (_playListData.length==0) return;
