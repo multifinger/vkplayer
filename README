@@ -13,6 +13,9 @@ READY
 - server connector
 - saving and load playlist from database (1 per user)
 - refactor & fix
+- single save request
+- current playListItem highlight
+- FIX: single song delete (save but not redraw)
 
 
 TODO
@@ -21,11 +24,7 @@ TODO
  - add playing time / total time
  - add song line
  - fixed header
- - current playListItem highlight
- js
- - single save request
-
- - FIX: single song delete (save but not redraw)
+ - footer (+liveInternet)
 
 
 WISH LIST

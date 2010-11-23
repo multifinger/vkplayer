@@ -8,7 +8,7 @@ function defaultAction()
     vkPlayer.authorise(1);
     vkPlayer.show(1);
     vkPlayer.setPlaylistName("мой первый список");
-    //vkPlayer.loadPlayList();
+    vkPlayer.loadPlayList();
     siteMenu.init(siteMenuId, menuConfig);
     siteMenu.show(0);
 }
@@ -43,6 +43,11 @@ function clearPage()
     vkPlayer.show(0);
 }
 
+function about()
+{
+    alert("playvk.ru - сайт для удобного доступа к медиа вконтакте.ру\n\nРазбаботчик:\n\tmultifinger\n\tweb@itnsk.org");
+}
+
 var siteMenuId  = 'siteMenu';
 var vkLibraryId =  'vkLibrary';
 
@@ -65,4 +70,9 @@ $(function()
         onLogout: clearPage
     });
 
+    $(".header_logo").click(function(e){
+        about();
+        e.stopPropagation();
+        e.preventDefault();
+    });
 });

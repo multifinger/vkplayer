@@ -12,6 +12,7 @@ body {
     width:expression(document.body.clientWidth < 999? "999px": "auto" );
 }
 
+a {outline: 0;}
 a img {
     border:none;
 }
@@ -174,7 +175,7 @@ p, h1, h2, h3 {
     list-style: none;
 }
 #vkLibrary ul li,
-#playlistPlayer ul li {
+#playlistPlayer ul li.jplayer_playList_item {
     position: relative;
     font-size: 11px;
     line-height: 23px;
@@ -182,6 +183,12 @@ p, h1, h2, h3 {
     overflow: hidden;
     padding-right: 25px;
     padding-left: 45px;
+}
+#playlistPlayer ul li.jplayer_playList_item {
+    cursor: move;
+}
+#playlistPlayer ul li.jplayer_playList_current {
+    background: #eee;
 }
 #vkLibrary ul li a,
 #playlistPlayer ul li a {
@@ -234,8 +241,4 @@ p, h1, h2, h3 {
     width: 16px;
     height: 17px;
     background: url('/img/theme/del.gif');
-}
-
-#playlistPlayer ul li {
-    cursor: move;
 }

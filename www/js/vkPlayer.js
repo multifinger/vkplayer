@@ -19,13 +19,15 @@ var vkPlayer = function()
 
     var _element            = null;
 
+    var _isReady            = false;
+
     var _playList           = null;
 
     var _playListId         = 0;
 
     var _playListName       = "мой первый список";
 
-    var _autosaveTimeout    = 1000;
+    var _autosaveTimeout    = 5000;
 
     var _saveState          = false;
 
@@ -39,6 +41,7 @@ var vkPlayer = function()
     {
         id              : "jplayer",
         playerSelector  : ".jp-playlist-player",
+        play            : "jplayer_play",
         previous        : "jplayer_previous",
         next            : "jplayer_next",
         shuffle         : "jplayer_shuffle",
@@ -63,27 +66,23 @@ var vkPlayer = function()
 
     function _init(opts)
     {
-        debug(">>> _init ");
-
         _opts = $.extend(_opts, opts);
-
-        //_playListInit();
 
         _opacity(_opts.opacity);
 
         _element = $("#"+_opts.id).jPlayer({
-            ready           : _playListInit,
+            ready           : _onPlayerReady,
             swfPath         : _opts.swfPath,
             nativeSupport   : _opts.nativeSupport,
             warningAlerts   : _opts.warningAlerts,
             errorAlerts     : _opts.errorAlerts
-            //onSoundComplete : _onSoundComplete
         });
         _element.jPlayer("onSoundComplete", _onSoundComplete);
 
         _toggleShuffle(_settings.shuffle);
         _toggleRepeat(_settings.repeat);
-        
+
+        $("#"+_opts.play).click(_onPlayBut);
         $("#"+_opts.shuffle).click(_onShuffleBut);
         $("#"+_opts.repeat ).click(_onRepeatBut);
         $("#"+_opts.previous).click(_onPrevBut);
@@ -95,10 +94,10 @@ var vkPlayer = function()
 
     function _playListPlay(index)
     {
-        index *= 1;
-        debug(">>> _playListPlay "+index);
+        index = index || 0;
+        debug(">>> vkPlayer._playListPlay "+index);
 
-        if (_playListData.length==0) return;
+        if (_playListData.length==0 || !_isReady) return;
 
         // TODO: add current playing trigger to play/pause
         if (_playListData[index].time==0) {
@@ -109,8 +108,8 @@ var vkPlayer = function()
         
         _element.jPlayer("setFile", _playListData[index].mp3).jPlayer("play");
 
-        $("#"+_opts.listitem+_playItem).removeClass("jplayer_playList_current");
-        $("#"+_opts.listitem+index).addClass("jplayer_playList_current");
+        $("ul li", _playList).removeClass("jplayer_playList_current");
+        $("#"+_opts.listitem+index, _playList).addClass("jplayer_playList_current");
     }
 
     function _playListNext(e)
@@ -155,11 +154,12 @@ var vkPlayer = function()
         
         _playListData.splice(index, 1);
         _redrawPlayList();
+        _savePlaylistTimeout();
     }
 
     function _playListInit()
     {
-        debug(">>> _playListInit");
+        debug(">>> vkPlayer._playListInit");
         
         _playList = $('#'+_opts.playlist);
         _playList.html("<h1></h1><ul></ul>");
@@ -171,13 +171,11 @@ var vkPlayer = function()
         _setPlayListName(_playListName);
 
         $("h1 .save", _playList).click(_savePlayList);
-
-        // _loadPlayList();
     }
 
     function _redrawPlayList()
     {
-        debug(">>> _redrawPlayList");
+        debug(">>> vkPlayer._redrawPlayList");
 
         if (_playListData.length) {
             
@@ -189,7 +187,7 @@ var vkPlayer = function()
                 var s = _playListData[i].time % 60;
                 s = s<10 ? "0" + s : s;
                 
-                li += "<li id='jplayer_playList_item_"+i+"' index='"+i+"'>";
+                li += "<li id='jplayer_playList_item_"+i+"' class='jplayer_playList_item' index='"+i+"'>";
                 li +=     "<a class='play' href='#' title='Играть!'>";
                 li +=         "&nbsp;";
                 li +=     "</a>";
@@ -213,13 +211,11 @@ var vkPlayer = function()
         } else if (_playList) {
             $("ul", _playList).html("");
         }
-
-        _savePlayList();
     }
 
     function _loadPlayList()
     {
-        debug(">>> _loadPlayList");
+        debug(">>> vkPlayer._loadPlayList");
 
         if (!_authorised) {
             return;
@@ -235,9 +231,9 @@ var vkPlayer = function()
 
     function _savePlayList(callback)
     {
-        debug(">>> _savePlayList "+callback);
-
         if (_saveState || !_authorised) return;
+
+        debug(">>> vkPlayer._savePlayList "+callback);
 
         var data = {};
 
@@ -259,7 +255,7 @@ var vkPlayer = function()
                 _playListId = data.id;
                 _saveState  = true;
             }
-            if (callback) {
+            if ("function" == typeof callback) {
                 callback(data);
             }
         }
@@ -275,8 +271,6 @@ var vkPlayer = function()
 
     function _setPlayListName(name)
     {
-        debug(">>> _setPlayListName "+name);
-        
         if (name=="") {
             _clearPlayListName();
             return;
@@ -294,16 +288,12 @@ var vkPlayer = function()
 
     function _clearPlayListName()
     {
-        debug(">>> _clearPlayListName ");
-
         _playListName = "";
         $("h1", _playList).html("");
     }
 
     function _toggleShuffle(b)
     {
-        debug(">>> _toggleShuffle "+b);
-
         b = b!==undefined ? b : !_settings.shuffle;
         _settings.shuffle = b;
 
@@ -316,8 +306,6 @@ var vkPlayer = function()
 
     function _toggleRepeat(b)
     {
-        debug(">>> _toggleRepeat "+b);
-
         b = b!==undefined ? b : !_settings.repeat;
         _settings.repeat = b;
 
@@ -339,11 +327,26 @@ var vkPlayer = function()
         });
     }
 
+    function _savePlaylistTimeout()
+    {
+        _saveState = false;
+
+        if (_xhrTimeoutId) {
+            debug(">>> vkPlayer.clearTimeout "+_xhrTimeoutId);
+            window.clearTimeout(_xhrTimeoutId);
+        }
+        if (_xhr) {
+            _xhr.abort();
+        }
+        _xhrTimeoutId = window.setTimeout(_savePlayList, _autosaveTimeout);
+        debug(">>> vkPlayer.setTimeout "+_xhrTimeoutId);
+    }
+
     // EVENT HANDLERS
     
     function _onLoadPlaylist(data)
     {
-        debug(">>> _onLoadPlaylist "+data);
+        debug(">>> vkPlayer._onLoadPlaylist "+data);
 
         _saveState = true;
         if (!data) return;
@@ -354,7 +357,6 @@ var vkPlayer = function()
         _playListData = [];
         for (var i=0; i<data.PlaylistItems.length; i++) {
             var it = data.PlaylistItems[i];
-            debug(it);
             _playListData.push({
                 artist  : it.artist,
                 title   : it.title,
@@ -363,11 +365,15 @@ var vkPlayer = function()
             });
         }
         _redrawPlayList();
+        
+        if (_playListData.length) {
+            // _element.jPlayer("setFile",_playListData[0].mp3);
+        }
     }
 
     function _onSortStop()
     {
-        debug(">>> _onSortStop ");
+        debug(">>> vkPlayer._onSortStop ");
 
         var arr = $(this).sortable('toArray');
 
@@ -378,13 +384,11 @@ var vkPlayer = function()
         }
         _playListData = newPLData;
         _redrawPlayList();
-        // TODO: _savePlayList(); find where else (after _redraw..l)
+        _savePlaylistTimeout();
     }
 
     function _onPlayBut(e)
     {
-        debug(">>> _onPlayBut ");
-
         var $this = $(this);
         var index = $this.parent().attr("index");
 
@@ -396,8 +400,6 @@ var vkPlayer = function()
 
     function _onDeleteBut(e)
     {
-        debug(">>> _onDeleteBut ");
-
         var $this = $(this);
         var index = $this.parent().attr("index");
         _playListDelete(index);
@@ -408,8 +410,6 @@ var vkPlayer = function()
 
     function _onShuffleBut(e)
     {
-        debug(">>> _onShuffleBut ");
-
         _toggleShuffle();
 
         $(this).blur();
@@ -418,8 +418,6 @@ var vkPlayer = function()
 
     function _onRepeatBut(e)
     {
-        debug(">>> _onRepeatBut ");
-
         _toggleRepeat();
 
         $(this).blur();
@@ -428,8 +426,6 @@ var vkPlayer = function()
 
     function _onNextBut(e)
     {
-        debug(">>> _onNextBut ");
-
         _playListNext();
 
         $(this).blur();
@@ -438,8 +434,6 @@ var vkPlayer = function()
 
     function _onPrevBut(e)
     {
-        debug(">>> _onPrevBut ");
-
         _playListPrev();
 
         $(this).blur();
@@ -451,6 +445,12 @@ var vkPlayer = function()
         if ( (_playItem+1 != _playListData.length) || _settings.repeat) {
             _playListNext();
         }
+    }
+
+    function _onPlayerReady()
+    {
+        _isReady = true;
+        _playListInit();
     }
 
     // PUBLIC METHODS
@@ -488,20 +488,14 @@ var vkPlayer = function()
 
         pushPlaylist: function(data, play)
         {
-            debug(">>> pushPlaylist()");
-
-            /* var it = {
-                artist  : data.artist,
-                title   : data.title,
-                mp3     : data.mp3,
-                time    : data.time
-            }*/
+            debug(">>> vkPlayer.pushPlaylist()");
 
             var it = $.extend({}, _emptyPlaylistItem, data);
 
             if (it.mp3) {
                 _playListData.push(it);
                 _redrawPlayList();
+                _savePlaylistTimeout();
             }
 
             if (play!==undefined) {

@@ -45,7 +45,6 @@ var vkAPI = function()
         });
 
         VK.Observer.subscribe('auth.login', function(r){
-            debug(">>> VK.Observer auth.login");
             _onLogin(r.session);
         });
 
@@ -60,7 +59,7 @@ var vkAPI = function()
     {
         VK.Auth.getLoginStatus(function(r){
             if (r.session) {
-                _onLogin(r.session);
+                // _onLogin(r.session); // already subscribed
             } else {
                 // login() popup blocked by browser, show login button
                 _onLogout();
@@ -83,11 +82,6 @@ var vkAPI = function()
     function _setUserInfo(u)
     {
         _setData('user', u);
-
-        // only now we are loged in
-        if (typeof _callbacks.onLogin == "function") {
-            _callbacks.onLogin();
-        }
     }
 
     function _deleteUserInfo()
@@ -136,8 +130,14 @@ var vkAPI = function()
                         uids: session.mid
                     }, function(r) {
                         if(r.response) {
-                            _setUserInfo(r.response[0]); // <= _callbacks.onLogout here
+                            _setUserInfo(r.response[0]);
                             _showUserInfo(r.response[0]);
+
+                            // only now we are loged in
+                            if (typeof _callbacks.onLogin == "function") {
+                                debug(">>> vkAPI._callbacks.onLogin");
+                                _callbacks.onLogin();
+                            }
                         } else {
                             _onLogout();
                         }
