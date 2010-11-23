@@ -2,3 +2,8 @@ all:
   vk_app_key_private: "wd21lt7eGMda0LfLxWap"
   vk_app_key_public: "xVIlqIucGX"
   vk_app_id: 1998251
+
+prod:
+  vk_app_key_private: "aAtLCJCbjr4Vq0JODlg5"
+  vk_app_key_public: ""
+  vk_app_id: 2025034

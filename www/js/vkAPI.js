@@ -34,7 +34,7 @@ var vkAPI = function()
         });
 
         VK.UI.button(LOGIN_BUTTON_ID);
-        $("#"+LOGIN_BUTTON_ID).click(function(){
+        $("#"+LOGIN_BUTTON_ID).click(function(){            
             _login();
         });
 

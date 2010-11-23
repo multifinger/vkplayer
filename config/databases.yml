@@ -1,10 +1,22 @@
-all:
+dev:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=vkplayer'
+      dsn: "mysql:host=localhost;dbname=vkplayer"
       username: root
       password: null
+      encoding: utf8
+      attributes:
+        default_table_collate: utf8_general_ci
+        default_table_charset: utf8
+
+prod:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: "mysql:host=u199675.mysql.masterhost.ru;dbname=u199675_2"
+      username: "u199675_2"
+      password: "angifi9re5sio"
       encoding: utf8
       attributes:
         default_table_collate: utf8_general_ci
