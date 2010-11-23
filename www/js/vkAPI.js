@@ -45,6 +45,7 @@ var vkAPI = function()
         });
 
         VK.Observer.subscribe('auth.login', function(r){
+            debug(">>> VK.Observer auth.login");
             _onLogin(r.session);
         });
 

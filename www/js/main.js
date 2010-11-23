@@ -4,9 +4,10 @@
 
 function defaultAction()
 {
-    //vkPlayer.authorise(1);
-    //vkPlayer.show(1);
-    //vkPlayer.setPlaylistName("мой первый список");
+    debug(">>> defaultAction");
+    vkPlayer.authorise(1);
+    vkPlayer.show(1);
+    vkPlayer.setPlaylistName("мой первый список");
     //vkPlayer.loadPlayList();
     siteMenu.init(siteMenuId, menuConfig);
     siteMenu.show(0);
@@ -64,4 +65,4 @@ $(function()
         onLogout: clearPage
     });
 
-}); 
+});
