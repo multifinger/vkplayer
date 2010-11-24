@@ -79,6 +79,8 @@ var vkPlayer = function()
         });
         _element.jPlayer("onSoundComplete", _onSoundComplete);
 
+        _playListInit();
+
         _toggleShuffle(_settings.shuffle);
         _toggleRepeat(_settings.repeat);
 
@@ -205,6 +207,9 @@ var vkPlayer = function()
             }
 
             $("ul", _playList).html(li);
+
+            $("ul li", _playList).eq(_playItem).addClass("jplayer_playList_current");
+
 
             $("ul li .play",   _playList).click(_onPlayBut);
             $('ul li .delete', _playList).click(_onDeleteBut);
@@ -378,11 +383,19 @@ var vkPlayer = function()
         var arr = $(this).sortable('toArray');
 
         var newPLData = [];
+        var newPlayItem = false;
         
         for (var i=0; i<arr.length; i++) {
-            newPLData[i] = _playListData[arr[i].match(/[\d]+/g)];
+            var newIndex = arr[i].match(/[\d]+/g);
+            newPLData[i] = _playListData[newIndex];
+
+            if (newPlayItem===false && _playItem==newIndex) {
+                newPlayItem = i;
+            }
         }
-        _playListData = newPLData;
+        
+        _playListData   = newPLData;
+        _playItem       = newPlayItem;
         _redrawPlayList();
         _savePlaylistTimeout();
     }
@@ -450,7 +463,7 @@ var vkPlayer = function()
     function _onPlayerReady()
     {
         _isReady = true;
-        _playListInit();
+        //_playListInit();
     }
 
     // PUBLIC METHODS

@@ -16,15 +16,17 @@ READY
 - single save request
 - current playListItem highlight
 - FIX: single song delete (save but not redraw)
-
+- google analytics
 
 TODO
+- app: "search audio"
+- app: "friends audio"
+- app: "best playlists"
  view
  - add playing title/author
  - add playing time / total time
  - add song line
  - fixed header
- - footer (+liveInternet)
 
 
 WISH LIST

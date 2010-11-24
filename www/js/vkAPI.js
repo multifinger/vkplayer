@@ -24,6 +24,10 @@ var vkAPI = function()
         onLogin : null,
         onLogout: null
     }
+
+    var _confirmLogoutText = "Внимание!\n\n"+
+        //"\tВы собираетесь выйти из аккаунта vkontakte.ru\n\n"+
+        "Вы также выйдете из аккаунта на сайте vkontakte.ru\n"
     
     function _init(callbacks)
     {
@@ -39,9 +43,11 @@ var vkAPI = function()
         });
 
         $('#'+USER_LOGOUT_ID).click(function(){
-            VK.Auth.logout(function(){
-                _onLogout();
-            });
+            if (confirm(_confirmLogoutText)) {
+                VK.Auth.logout(function(){
+                    _onLogout();
+                });
+            }
         });
 
         VK.Observer.subscribe('auth.login', function(r){
