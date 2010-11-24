@@ -3,22 +3,35 @@
 
 prod:
   .settings:
+    error_reporting:        0
     no_script_name:         true
     logging_enabled:        false
+    web_debug:              false
+    cache:                  true
+    etag:                   false
 
 test:
   .settings:
     error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
-    cache:                  false
+    cache:                  true
     web_debug:              true
     no_script_name:         false
     etag:                   false
 
-dev:
+local:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              false
+    cache:                  true
+    no_script_name:         false
+    etag:                   false
+
+
+dev:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
     web_debug:              true
-    cache:                  false
+    cache:                  true
     no_script_name:         false
     etag:                   false
 

@@ -6,11 +6,11 @@ default:
     content-type: text/html
 
   metas:
-    title:        "vkplayer"
-    #description:  symfony project
-    #keywords:     symfony, project
-    language:     en
-    #robots:       index, follow
+    title:        "PLAYVK - слушать музыку вконтакте теперь удобно"
+    description:  "PLAYVK - слушать музыку вконтакте теперь удобно"
+    keywords:     "PLAYVK - слушать музыку вконтакте теперь удобно"
+    language:     ru
+    robots:       index, follow
 
   stylesheets:    []
 

@@ -6,7 +6,7 @@ var vkAPI = function()
 {
     // var PUBLIC_KEY      = 'xVIlqIucGX';
     
-    var _APP_ID          = 1998251;
+    var _APP_ID          = false;
     
     // var API_SRC         = "http://vkontakte.ru/js/api/openapi.js";
 
@@ -162,7 +162,8 @@ var vkAPI = function()
 
     var _global =
     {
-        init: function(callbacks) {
+        init: function(callbacks, app_id) {
+            _APP_ID = app_id;
             _init(callbacks);
         },
 

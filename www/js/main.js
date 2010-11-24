@@ -68,7 +68,7 @@ $(function()
     vkAPI.init({
         onLogin: defaultAction,
         onLogout: clearPage
-    });
+    }, _VK_APP_ID);
 
     $(".header_logo").click(function(e){
         about();

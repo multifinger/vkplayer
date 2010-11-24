@@ -1,8 +1,9 @@
 # Project files
 /cache/*
 /log/*
-/web/*_dev.php
-/web/uploads/*
+/www/*_dev.php
+/www/uploads/*
+/config/databases.yml
 
 # SCM files
 .arch-params

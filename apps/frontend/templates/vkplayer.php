@@ -7,7 +7,8 @@
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_stylesheets() ?>
         <script type="text/javascript">
-            _DEBUG = <?php echo json_encode(sfConfig::get("sf_web_debug", false)); ?>;
+            var _DEBUG      = <?php echo json_encode(sfConfig::get("sf_web_debug", false)); ?>;
+            var _VK_APP_ID  = <?php echo json_encode(sfConfig::get("app_vk_app_id", false)); ?>;
             var serverUrl = {
                 savePlaylist : <?php echo json_encode(url_for("vkplayer/savePlaylist")); ?>,
                 loadPlaylist : <?php echo json_encode(url_for("vkplayer/loadPlaylist")); ?>

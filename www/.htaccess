@@ -1,6 +1,11 @@
 AddDefaultCharset       UTF-8
 Options                 +FollowSymLinks +ExecCGI
 
+php_flag short_open_tag off
+php_flag magic_quotes_gpc off
+
+
+
 <IfModule mod_rewrite.c>
   RewriteEngine         On
 
