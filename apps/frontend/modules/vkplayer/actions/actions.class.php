@@ -14,7 +14,6 @@ class vkplayerActions extends sfActions
         return $this->vkSession['id'];
     }
 
-
     public function preExecute()
     {
         $this->vkSession = vkUser::getSession();
@@ -22,6 +21,21 @@ class vkplayerActions extends sfActions
         parent::preExecute();
     }
 
+    public function executeDownload()
+    {
+        $filepath = "http://cs4955.vkontakte.ru/u51289921/audio/";
+        $filename = "6b2a0869e057.mp3";
+
+        header("Content-Description: File Transfer");
+        header("Content-type: application/octet-stream");
+        header("Content-Disposition: attachment; filename=\"{$filename}\"");
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: ".filesize($filepath.$filename));
+        ob_end_flush();
+        @readfile($filepath.$filename);
+
+        // filesize - unknown; readfile - works )
+    }
 
     public function executeIndex(sfWebRequest $request)
     {
